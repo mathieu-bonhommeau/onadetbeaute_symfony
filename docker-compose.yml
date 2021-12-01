@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  db:
+    image: mysql
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3307:3306
+    volumes:
+      - db-data:/var/lib/mysql
+    restart: always
+    env_file:
+      - .env
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin_container
+    links:
+      - db
+    restart: always
+    ports:
+      - 3308:80
+    environment:
+      PMA_HOST: mysql_container
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+
+volumes:
+  db-data:
+
