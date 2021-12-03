@@ -1,4 +1,4 @@
-name: Symfony
+name: other-branches
 
 on:
   push:
