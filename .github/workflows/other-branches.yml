@@ -3,7 +3,7 @@ name: other-branches
 on:
   push:
     branches:
-      - '*'
+      - backend/init
 
 jobs:
   symfony-tests:
