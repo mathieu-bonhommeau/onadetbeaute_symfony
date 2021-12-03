@@ -2,8 +2,7 @@ name: other-branches
 
 on:
   push:
-    branches:
-      - backend/init
+    branches-ignore : [ main ]
 
 jobs:
   symfony-tests:
