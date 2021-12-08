@@ -34,7 +34,7 @@ class PhotoTest extends TestCase
     public function testHydratePhoto(): void
     {
         $this->assertSame('myPhoto.jpg', $this->photo->getPath());
-        $this->assertTrue(true, $this->photo->getFrontPhoto());
+        $this->assertSame(true, $this->photo->getFrontPhoto());
         $this->assertFalse(false, $this->photo->getIsMyWorksPhoto());
         $this->assertSame(PrestationType::class, $this->photo->getPrestationType()::class);
         $this->assertSame(Prestation::class, $this->photo->getPrestation()::class);

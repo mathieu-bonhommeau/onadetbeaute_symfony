@@ -62,8 +62,10 @@ class Prestation
 
     public function setName(string $name): self
     {
+        if ($name === '') {
+            throw new \Exception('Cet élément ne peut être vide');
+        }
         $this->name = $name;
-
         return $this;
     }
 
@@ -86,6 +88,9 @@ class Prestation
 
     public function setPrice(float $price): self
     {
+        if ($price < 0) {
+            $price = $price * (-1);
+        }
         $this->price = $price;
 
         return $this;

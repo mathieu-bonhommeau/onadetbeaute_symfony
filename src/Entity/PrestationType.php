@@ -45,8 +45,10 @@ class PrestationType
 
     public function setName(string $name): self
     {
+        if ($name === '') {
+            throw new \Exception('Cet élément ne peut être vide');
+        }
         $this->name = $name;
-
         return $this;
     }
 
