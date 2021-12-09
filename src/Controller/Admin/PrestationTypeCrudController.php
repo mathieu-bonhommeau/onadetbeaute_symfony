@@ -3,26 +3,29 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Photo;
+use App\Entity\PrestationType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
-class PhotoCrudController extends AbstractCrudController
+class PrestationTypeCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Photo::class;
+        return PrestationType::class;
     }
 
+    
     public function configureFields(string $pageName): iterable
     {
         return [
             IdField::new('id')->hideOnForm(),
-            ImageField::new('path', 'Choisir une photo')
-                ->setUploadDir('public/images/upload_photos')
-                ->setRequired(true)
+            TextField::new('name', 'Nom'),
+            TextEditorField::new('description', 'Description'),
+
         ];
     }
+    
 }
