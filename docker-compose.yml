@@ -28,5 +28,6 @@ services:
       PMA_PORT: 3306
       PMA_ARBITRARY: 1
 
+
 volumes:
   db-data:

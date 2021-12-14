@@ -1,9 +1,8 @@
-name: Symfony
+name: other-branches
 
 on:
   push:
-    branches:
-      - '*'
+    branches-ignore : [ main ]
 
 jobs:
   symfony-tests:
