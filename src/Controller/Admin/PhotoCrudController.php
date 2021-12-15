@@ -20,9 +20,10 @@ class PhotoCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
+            IdField::new('path')->hideOnForm(),
             ImageField::new('path', 'Photo')
-                ->setUploadDir('public/images/upload_photos')
-                ->setBasePath('public/images/upload_photos')
+                ->setUploadDir('/public/images/upload_photos')
+                ->setBasePath('images/upload_photos')
                 ->setUploadedFileNamePattern(mt_rand() . '.[extension]')
                 ->setRequired(true)
         ];
