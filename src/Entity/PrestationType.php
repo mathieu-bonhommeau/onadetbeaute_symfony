@@ -28,7 +28,7 @@ class PrestationType
     private $description;
 
     /**
-     * @ORM\OneToOne(targetEntity=Photo::class, inversedBy="prestationType", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Photo::class, inversedBy="prestationType")
      * @ORM\JoinColumn(nullable=false)
      */
     private $photoInPromote;

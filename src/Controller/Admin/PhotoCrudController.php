@@ -6,6 +6,7 @@ use App\Entity\Photo;
 use App\Entity\PrestationType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -27,10 +28,35 @@ class PhotoCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud->setEntityLabelInSingular('Photo')
-                    ->setPageTitle('index', 'Photos')
-                    ->setPageTitle('new', 'Ajouter une Photo')
-                    ->setPageTitle('edit', 'Modifier une Photo')
+            ->setPageTitle('index', 'Photos')
+            ->setPageTitle('new', 'Ajouter une Photo')
+            ->setPageTitle('edit', 'Modifier une Photo')
                 ;
+    }
+
+    public function configureActions(Actions $actions): Actions
+    {
+        $actions->update(
+            Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
+                $action->displayIf(
+                    function (Photo $entity) {
+
+                        if ($entity->getPrestationType()
+                            || $entity->getPrincipalPhoto() 
+                            || $entity->getFrontPhoto() 
+                            || $entity->getIsMyWorksPhoto() 
+                            || $entity->getPrestation()
+                        ) {
+                            return false;
+                        }
+                        return true;
+                    }
+                );
+                return $action;
+            }
+        );
+        
+        return $actions;
     }
 
     public function configureFields(string $pageName): iterable
@@ -43,13 +69,18 @@ class PhotoCrudController extends AbstractCrudController
                 ->setUploadedFileNamePattern(mt_rand() . '.[extension]')
                 ->setRequired(true),
             IdField::new('name')->setRequired(true),
-            BooleanField::new('principalPhoto', 'Photo principal'),
-            BooleanField::new('frontPhoto', 'Slider Page d\'accueil'),
-            BooleanField::new('isMyWorksPhoto', 'Slider A propos de moi'),
+            BooleanField::new('principalPhoto', 'Photo principal')
+                ->addCssClass('principal-photo'),
+            BooleanField::new('frontPhoto', 'Slider Page d\'accueil')
+                ->addCssClass('front-photo'),
+            BooleanField::new('isMyWorksPhoto', 'Slider A propos de moi')
+                ->addCssClass('ismyworks-photo'),
             AssociationField::new('prestationType', 'Type de prestation')
-                ->setFormType(EntityType::class),
+                ->setFormType(EntityType::class)
+                ->addCssClass('prestationtype-photo'),
             AssociationField::new('prestation', 'Prestation')
                 ->setFormType(EntityType::class)
+                ->addCssClass('prestation-photo'),
         ];
     }
 }

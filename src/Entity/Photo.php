@@ -35,7 +35,7 @@ class Photo
     private $isMyWorksPhoto;
 
     /**
-     * @ORM\OneToOne(targetEntity=PrestationType::class, mappedBy="photoInPromote", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=PrestationType::class, mappedBy="photoInPromote")
      */
     private $prestationType;
 

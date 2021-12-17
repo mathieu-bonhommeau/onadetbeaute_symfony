@@ -28,8 +28,6 @@ class DatabaseActivitySubscriber implements EventSubscriberInterface
     public function getSubscribedEvents(): array
     {
         return [
-            Events::preUpdate,
-            Events::prePersist,
             Events::postPersist,
             Events::postRemove,
             Events::postUpdate,
@@ -39,16 +37,6 @@ class DatabaseActivitySubscriber implements EventSubscriberInterface
     // callback methods must be called exactly like the events they listen to;
     // they receive an argument of type LifecycleEventArgs, which gives you access
     // to both the entity object of the event and the entity manager itself
-    public function prePersist(LifecycleEventArgs $args): void
-    {
-        $this->logActivity('prePersist', $args);
-    }
-
-    public function preUpdate(PreUpdateEventArgs $args): void
-    {
-        $this->logActivity('preUpdate', $args);
-    }
-
     public function postPersist(LifecycleEventArgs $args): void
     {
         $this->logActivity('persist', $args);
@@ -68,11 +56,11 @@ class DatabaseActivitySubscriber implements EventSubscriberInterface
     { 
         $entity = $args->getObject();
         
-        if ($action === "prePersist" || $action === "preUpdate") {
-            if ($entity instanceof Photo && $entity->getPrincipalPhoto() === true) {
-                $this->checkPhoto($entity);
+        /*if ($action === "persist" || $action === "update") {
+            if ($entity instanceof Photo) {
+                $this->checkPhoto($entity);   
             }
-        }
+        }*/
 
         if ($action === "remove" && $entity instanceof Photo) {
             // Add a try catch AND TEST
@@ -80,8 +68,8 @@ class DatabaseActivitySubscriber implements EventSubscriberInterface
         }
     }
 
-    private function checkPhoto($entity) {
-        
+    /*private function checkPhoto($entity) {
+
         $nbPrincipalPhotos = count($this->photoRepository->findBy(['principalPhoto' => true]));
         if ($nbPrincipalPhotos > 1) {
             throw new \Exception('Une photo principale est déjà définie');
@@ -96,5 +84,5 @@ class DatabaseActivitySubscriber implements EventSubscriberInterface
         if ($nbisMyWorksPhoto > 3) {
             throw new \Exception('Maximum 3 photos pour ce carroussel.');
         }
-    }
+    }*/
 }
