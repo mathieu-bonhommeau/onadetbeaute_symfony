@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\PhotoRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=PhotoRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Photo
 {
@@ -41,6 +43,21 @@ class Photo
      * @ORM\ManyToOne(targetEntity=Prestation::class, inversedBy="photos")
      */
     private $prestation;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true, unique=true)
+     */
+    private $principalPhoto;
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     public function getId(): ?int
     {
@@ -112,6 +129,30 @@ class Photo
     public function setPrestation(?Prestation $prestation): self
     {
         $this->prestation = $prestation;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getPrincipalPhoto(): ?bool
+    {
+        return $this->principalPhoto;
+    }
+
+    public function setPrincipalPhoto(?bool $principalPhoto): self
+    {
+        $this->principalPhoto = $principalPhoto;
 
         return $this;
     }
