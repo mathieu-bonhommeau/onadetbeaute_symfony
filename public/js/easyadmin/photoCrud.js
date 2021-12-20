@@ -32,7 +32,7 @@ tr.forEach((element) => {
             isDelete = false
         }
         if (isDeleteInit != isDelete) {
-            //location.reload()
+            location.reload()
         }
     })
 })
