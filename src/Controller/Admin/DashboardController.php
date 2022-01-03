@@ -43,7 +43,7 @@ class DashboardController extends AbstractDashboardController
             PrestationType::class
         );
         yield MenuItem::linkToCrud(
-            'Préstation', 
+            'Prestation', 
             'fas fa-hand-sparkles', 
             Prestation::class
         );

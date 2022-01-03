@@ -2,16 +2,16 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Photo;
+use App\Form\PhotoType;
 use App\Entity\PrestationType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class PrestationTypeCrudController extends AbstractCrudController
 {
@@ -37,8 +37,7 @@ class PrestationTypeCrudController extends AbstractCrudController
             TextEditorField::new('description', 'Description')->setRequired(true),
             AssociationField::new('photoInPromote', 'Photo')
                 ->setRequired(true)
-                ->setFormType(EntityType::class)
-                
+                ->setFormType(EntityType::class)  
         ];
     }
     

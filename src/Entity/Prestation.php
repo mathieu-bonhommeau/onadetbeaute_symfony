@@ -35,19 +35,14 @@ class Prestation
     private $price;
 
     /**
-     * @ORM\OneToOne(targetEntity=Photo::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Photo::class, inversedBy="prestation")
      */
     private $photoInPromote;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="prestation")
-     */
-    private $photos;
 
-    public function __construct()
+    public function __toString()
     {
-        $this->photoInPromote = new ArrayCollection();
-        $this->photos = new ArrayCollection();
+        return $this->name;
     }
 
     public function getId(): ?int
@@ -107,35 +102,4 @@ class Prestation
 
         return $this;
     }
-
-    /**
-     * @return Collection|Photo[]
-     */
-    public function getPhotos(): Collection
-    {
-        return $this->photos;
-    }
-
-    public function addPhoto(Photo $photo): self
-    {
-        if (!$this->photos->contains($photo)) {
-            $this->photos[] = $photo;
-            $photo->setPrestation($this);
-        }
-
-        return $this;
-    }
-
-    public function removePhoto(Photo $photo): self
-    {
-        if ($this->photos->removeElement($photo)) {
-            // set the owning side to null (unless already changed)
-            if ($photo->getPrestation() === $this) {
-                $photo->setPrestation(null);
-            }
-        }
-
-        return $this;
-    }
-
 }

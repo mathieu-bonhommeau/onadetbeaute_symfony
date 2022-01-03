@@ -2,8 +2,10 @@
 # src/EventSubscriber/EasyAdminSubscriber.php
 namespace App\EventSubscriber;
 
+use App\Entity\Photo;
 use App\Repository\PhotoRepository;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeCrudActionEvent;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityUpdatedEvent;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 
@@ -19,21 +21,25 @@ class EasyAdminSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            BeforeEntityPersistedEvent::class => ['setBlogPostSlug'],
-            BeforeEntityUpdatedEvent::class => ['setBlog']
+            BeforeEntityPersistedEvent::class => ['beforePersist'],
+            BeforeEntityUpdatedEvent::class => ['beforeUpdate']
         ];
     }
 
-    public function setBlogPostSlug(BeforeEntityPersistedEvent $event)
+    public function beforePersist(BeforeEntityPersistedEvent $event)
     {
         $entity = $event->getEntityInstance();
-        $this->checkPrincipalPhoto($entity);
+        if ($entity instanceof Photo) {
+            $this->checkPrincipalPhoto($entity);
+        }
     }
     
-    public function setBlog(BeforeEntityUpdatedEvent $event)
+    public function beforeUpdate(BeforeEntityUpdatedEvent $event)
     {
         $entity = $event->getEntityInstance();
-        $this->checkPrincipalPhoto($entity);
+        if ($entity instanceof Photo) {
+            $this->checkPrincipalPhoto($entity);
+        }
     }
 
     private function checkPrincipalPhoto($entity) {

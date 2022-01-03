@@ -12,9 +12,12 @@ tr.forEach((element) => {
     const prestationTypePhoto = element.querySelector('.prestationtype-photo a')
     const prestationPhoto = element.querySelector('.prestation-photo a')
 
-    if (principalPhoto.checked || frontPhoto.checked || isMyWorksPhoto.checked) {
-        isDeleteInit = true
-    } else if (prestationTypePhoto || prestationPhoto) {
+    if (principalPhoto.checked || 
+        frontPhoto.checked || 
+        isMyWorksPhoto.checked ||
+        prestationTypePhoto ||
+        prestationPhoto
+    ) {
         isDeleteInit = true
     } else {
         isDeleteInit = false
@@ -24,15 +27,20 @@ tr.forEach((element) => {
 
     listPhoto.addEventListener('change', () => {
         
-        if (principalPhoto.checked || frontPhoto.checked || isMyWorksPhoto.checked) {
-            isDelete = true
-        } else if (prestationTypePhoto || prestationPhoto) {
+        if (principalPhoto.checked || 
+            frontPhoto.checked || 
+            isMyWorksPhoto.checked ||
+            prestationTypePhoto ||
+            prestationPhoto
+        ) {
             isDelete = true
         } else {
             isDelete = false
-        }
+        } 
         if (isDeleteInit != isDelete) {
             location.reload()
         }
     })
+
+    principalPhoto.addEventListener('change', () => location.reload())
 })

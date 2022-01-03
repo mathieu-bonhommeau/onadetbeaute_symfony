@@ -75,11 +75,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $aboutMyActivity;
 
-    /**
-     * @ORM\Column(type="array")
-     */
-    private $photosWhoIam = [];
-
     public function getId(): ?int
     {
         return $this->id;
@@ -115,7 +110,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string) $this->username;
+    }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
     }
 
     /**
@@ -274,22 +274,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             throw new \Exception('Cet élément ne peut être vide');
         }
         $this->aboutMyActivity = $aboutMyActivity;
-
-        return $this;
-    }
-
-    public function getPhotosWhoIam(): ?array
-    {
-        return $this->photosWhoIam;
-    }
-
-    public function setPhotosWhoIam(array $photosWhoIam): self
-    {
-        if ($photosWhoIam === []) {
-            throw new \Exception('Cet élément ne peut être vide');
-        }
-
-        $this->photosWhoIam = $photosWhoIam;
 
         return $this;
     }

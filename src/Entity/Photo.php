@@ -3,12 +3,15 @@
 namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use App\Repository\PhotoRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=PhotoRepository::class)
  * @ORM\HasLifecycleCallbacks()
+ * @Vich\Uploadable
  */
 class Photo
 {
@@ -23,6 +26,12 @@ class Photo
      * @ORM\Column(type="string", length=255)
      */
     private $path;
+
+    /**
+     * @Vich\UploadableField(mapping="photos_images", fileNameProperty="path")
+     * @var File
+     */
+    private $imageFile;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -40,7 +49,7 @@ class Photo
     private $prestationType;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Prestation::class, inversedBy="photos")
+     * @ORM\OneToOne(targetEntity=Prestation::class, mappedBy="photoInPromote")
      */
     private $prestation;
 
@@ -50,9 +59,14 @@ class Photo
     private $name;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true, unique=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $principalPhoto;
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $tags = [];
 
     public function __toString()
     {
@@ -79,6 +93,25 @@ class Photo
 
         return $this;
     }
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
 
     public function getFrontPhoto(): ?bool
     {
@@ -126,8 +159,13 @@ class Photo
         return $this->prestation;
     }
 
-    public function setPrestation(?Prestation $prestation): self
+    public function setPrestation(Prestation $prestation): self
     {
+        // set the owning side of the relation if necessary
+        if ($prestation->getPhotoInPromote() !== $this) {
+            $prestation->setPhotoInPromote($this);
+        }
+
         $this->prestation = $prestation;
 
         return $this;
@@ -153,6 +191,18 @@ class Photo
     public function setPrincipalPhoto(?bool $principalPhoto): self
     {
         $this->principalPhoto = $principalPhoto;
+
+        return $this;
+    }
+
+    public function getTags(): ?array
+    {
+        return $this->tags;
+    }
+
+    public function setTags(?array $tags): self
+    {
+        $this->tags = $tags;
 
         return $this;
     }
