@@ -1,19 +1,70 @@
-<!DOCTYPE html>
+<!DOCTYPE html="fr">
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}
+			{% endblock %}
+		</title>
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+		<meta charset="utf-8">
+		<meta name="geo.placename" content="Vendée">
+		<meta name="geo.position" content="46.88590933251385, -1.2322285150038392">
+		<meta name="geo.region" content="FR_fr">
+
+		<meta name="description" content="Bienvenue chez O'Nad&Beauté. Prothésiste ongulaire, je pose également les extensions de cils. Je pratique à domicile autour de la Roche sur Yon en Vendée. Vous trouverez ici toutes les informations concernant les tarifs et le détail de mes préstations.">
+		<meta name="keywords" content="ongles, onglerie, prothésiste ongulaire, nail art, cils, extensions de cils, prothésiste ongulaire en vendée, prothésiste ongulaire à la Roche sur Yon, Extensions de cils en Vendée, extensions de cils à la Roche sur yon, prothésiste ongulaire à domicile">
+
+		<meta property="og:site_name" content="O'Nad&Beauté">
+		<meta property="og:title" content="O'Nad&Beauté">
+		<meta property="og:type" content="site web">
+		<meta property="og:url" content="https://onadetbeaute.com">
+		<meta property="og:image" content="">
+		<meta property="og:description" content="Bienvenue chez ONadetBeaute. Prothésiste ongulaire, je pose également les extensions de cils. Je pratique à domicile autour de la Roche sur Yon en Vendée.">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Stylesheets -->
+
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+
+		{% block stylesheets %}
+			{#{{ encore_entry_link_tags('app') }}#}
+		{% endblock %}
+
+		<meta name="theme-color" content="#fafafa">
+	</head>
+
+	<body>
+		<div class="header-container">
+			<!-- Header -->
+			<header class="container">
+				<img src="./images/logo-new.png" alt="Logo O'Nad&Beauté" class="header__logo">
+			</header>
+			<!-- Principal navigation -->
+			<div class="nav-container">
+				<div class="container">
+					<nav class="principal-nav">
+						<ul class="menu principal-menu">
+							<li class="principal-menu__item">A changer</li>
+							<li class="principal-menu__item">A changer</li>
+							<li class="principal-menu__item">A changer</li>
+							<li class="principal-menu__item">A changer</li>
+							<li class="principal-menu__item">A changer</li>
+							<li class="principal-menu__item">A changer</li>
+							<li class="principal-menu__item">A changer</li>
+						</ul>
+					</nav>
+					<div class="phone-nav"></div>
+				</div>
+			</div>
+			<!-- Banner of presentation -->
+			<div class="container presentation-banner" role="banner">
+				<div class="prestations-banner__slide"></div>
+				<div class="presentations-banner__img"></div>
+			</div>
+		</div>
+		{% block body %}{% endblock %}
+	</body>
 </html>

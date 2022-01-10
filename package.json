@@ -1,0 +1,25 @@
+{
+  "name": "onadetbeaute-new",
+  "version": "1.0.0",
+  "description": "onabetbeaute website",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.css",
+    "normalize": "sass ./sass/vendor/normalize.scss:./public/css/normalize.css --style=compressed",
+    "prefix": "postcss ./public/css/style.css --use autoprefixer -d .public/css/prefixed/",
+    "sass-min-prefix": "sass ./sass/main.scss:./public/css/style.min.css --style=compressed && postcss ./public/css/style.min.css --use autoprefixer -d ./public/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matanna/onadetbeaute_symfony.git"
+  },
+  "author": "Mathieu Bonhommeau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matanna/onadetbeaute_symfony/issues"
+  },
+  "homepage": "https://github.com/matanna/onadetbeaute_symfony#readme"
+}

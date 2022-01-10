@@ -22,3 +22,7 @@
 ### composer ###
 /composer.phar
 ### composer ###
+
+### upload_photos ###
+/public/images/upload_photos/
+### upload_photos ###
