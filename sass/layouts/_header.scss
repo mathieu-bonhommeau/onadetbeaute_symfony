@@ -1,0 +1,28 @@
+.header-container {
+    width: 100vw;
+    background-color: $headerBGColor;
+}
+
+.header {
+    margin: 0 auto;
+
+    &__logo {
+        display: block;
+        margin: 0 auto;
+        padding: 80px 0;
+    }
+}
+
+.nav-container {
+    width: 100%;
+    background-color: $principalMenuBg;
+}
+
+.principal-menu {
+    display: flex;
+
+    &__item {
+        list-style: none;
+        margin-right: 2em;
+    }
+}

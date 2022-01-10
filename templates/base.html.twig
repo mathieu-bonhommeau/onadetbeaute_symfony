@@ -3,36 +3,68 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			{% block title %}Welcome !
+			{% block title %}
 			{% endblock %}
 		</title>
 
-		<meta name="description" content="">
+		<meta charset="utf-8">
+		<meta name="geo.placename" content="Vendée">
+		<meta name="geo.position" content="46.88590933251385, -1.2322285150038392">
+		<meta name="geo.region" content="FR_fr">
+
+		<meta name="description" content="Bienvenue chez O'Nad&Beauté. Prothésiste ongulaire, je pose également les extensions de cils. Je pratique à domicile autour de la Roche sur Yon en Vendée. Vous trouverez ici toutes les informations concernant les tarifs et le détail de mes préstations.">
+		<meta name="keywords" content="ongles, onglerie, prothésiste ongulaire, nail art, cils, extensions de cils, prothésiste ongulaire en vendée, prothésiste ongulaire à la Roche sur Yon, Extensions de cils en Vendée, extensions de cils à la Roche sur yon, prothésiste ongulaire à domicile">
+
+		<meta property="og:site_name" content="O'Nad&Beauté">
+		<meta property="og:title" content="O'Nad&Beauté">
+		<meta property="og:type" content="site web">
+		<meta property="og:url" content="https://onadetbeaute.com">
+		<meta property="og:image" content="">
+		<meta property="og:description" content="Bienvenue chez ONadetBeaute. Prothésiste ongulaire, je pose également les extensions de cils. Je pratique à domicile autour de la Roche sur Yon en Vendée.">
+
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<meta property="og:title" content="">
-		<meta property="og:type" content="">
-		<meta property="og:url" content="">
-		<meta property="og:image" content="">
-
-		<link rel="manifest" href="site.webmanifest">
-		<link
-		rel="apple-touch-icon" href="icon.png">
-		<!-- Place favicon.ico in the root directory -->
+		<!-- Stylesheets -->
 
 		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/style.css">
 
 		{% block stylesheets %}
 			{#{{ encore_entry_link_tags('app') }}#}
 		{% endblock %}
 
 		<meta name="theme-color" content="#fafafa">
-
 	</head>
 
 	<body>
+		<div class="header-container">
+			<!-- Header -->
+			<header class="container">
+				<img src="./images/logo-new.png" alt="Logo O'Nad&Beauté" class="header__logo">
+			</header>
+			<!-- Principal navigation -->
+			<div class="nav-container">
+				<div class="container">
+					<nav class="principal-nav">
+						<ul class="menu principal-menu">
+							<li class="principal-menu__item">A changer</li>
+							<li class="principal-menu__item">A changer</li>
+							<li class="principal-menu__item">A changer</li>
+							<li class="principal-menu__item">A changer</li>
+							<li class="principal-menu__item">A changer</li>
+							<li class="principal-menu__item">A changer</li>
+							<li class="principal-menu__item">A changer</li>
+						</ul>
+					</nav>
+					<div class="phone-nav"></div>
+				</div>
+			</div>
+			<!-- Banner of presentation -->
+			<div class="container presentation-banner" role="banner">
+				<div class="prestations-banner__slide"></div>
+				<div class="presentations-banner__img"></div>
+			</div>
+		</div>
 		{% block body %}{% endblock %}
-
 	</body>
 </html>

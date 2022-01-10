@@ -55,34 +55,10 @@ class DatabaseActivitySubscriber implements EventSubscriberInterface
     private function logActivity(string $action, LifecycleEventArgs $args): void
     { 
         $entity = $args->getObject();
-        
-        /*if ($action === "persist" || $action === "update") {
-            if ($entity instanceof Photo) {
-                $this->checkPhoto($entity);   
-            }
-        }*/
 
         if ($action === "remove" && $entity instanceof Photo) {
             // Add a try catch AND TEST
             unlink($this->photoDir . $entity->getPath());
         }
     }
-
-    /*private function checkPhoto($entity) {
-
-        $nbPrincipalPhotos = count($this->photoRepository->findBy(['principalPhoto' => true]));
-        if ($nbPrincipalPhotos > 1) {
-            throw new \Exception('Une photo principale est déjà définie');
-        }
-
-        $nbFrontPhotos = count($this->photoRepository->findBy(['frontPhoto' => true]));
-        if ($nbFrontPhotos > 5) {
-            throw new \Exception('Maximum 5 photos pour ce carroussel.');
-        }
-
-        $nbisMyWorksPhoto = count($this->photoRepository->findBy(['isMyWorksPhoto' => true]));
-        if ($nbisMyWorksPhoto > 3) {
-            throw new \Exception('Maximum 3 photos pour ce carroussel.');
-        }
-    }*/
 }

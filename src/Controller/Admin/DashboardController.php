@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use App\Entity\Photo;
 use App\Entity\Prestation;
+use App\Entity\OnadEtBeaute;
 use App\Entity\PrestationType;
 use App\Controller\Admin\PhotoCrudController;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,7 +36,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToRoute('Retour au site', 'fas fa-home', 'homepage');
+        yield MenuItem::linkToRoute('Retour au site', 'fas fa-home', 'home');
         yield MenuItem::linkToCrud('Photo', 'fas fa-images', Photo::class);
         yield MenuItem::linkToCrud(
             'Catégorie de prestation', 
@@ -48,5 +49,6 @@ class DashboardController extends AbstractDashboardController
             Prestation::class
         );
         yield MenuItem::linkToCrud('Utilisateur', 'fas fa-user', User::class);
+        yield MenuItem::linkToCrud('OnadEtBeaute', 'fas fa-bahai', OnadEtBeaute::class);
     }
 }

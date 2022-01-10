@@ -14,7 +14,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Form\Type\FileUploadType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class PhotoCrudController extends AbstractCrudController
@@ -35,25 +34,26 @@ class PhotoCrudController extends AbstractCrudController
 
     public function configureActions(Actions $actions): Actions
     {
-        $actions->update(
-            Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
-                $action->displayIf(
-                    function (Photo $entity) {
+        $actions
+            ->update(
+                Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
+                    $action->displayIf(
+                        function (Photo $entity) {
 
-                        if ($entity->getPrestationType()
-                            || $entity->getPrincipalPhoto() 
-                            || $entity->getFrontPhoto() 
-                            || $entity->getIsMyWorksPhoto() 
-                            || $entity->getPrestation()
-                        ) {
-                            return false;
+                            if ($entity->getPrestationType()
+                                || $entity->getPrincipalPhoto() 
+                                || $entity->getFrontPhoto() 
+                                || $entity->getIsMyWorksPhoto() 
+                                || $entity->getPrestation()
+                            ) {
+                                return false;
+                            }
+                            return true;
                         }
-                        return true;
-                    }
-                );
-                return $action;
-            }
-        );
+                    );
+                    return $action;
+                }
+            );
         
         return $actions;
     }
@@ -62,13 +62,11 @@ class PhotoCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            //TextField::new('imageFile')->setFormType(VichImageType::class),
-                //->onlyWhenCreating()
+            TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
             ImageField::new('path', 'Photo')
                 ->setBasePath('images/upload_photos')
                 ->setUploadDir('public/images/upload_photos')
-                //->onlyOnIndex()
-                ->hideWhenUpdating(),
+                ->onlyOnIndex(),
             IdField::new('name')->setRequired(true),
             BooleanField::new('principalPhoto', 'Photo principal')
                 ->addCssClass('principal-photo'),
@@ -76,12 +74,12 @@ class PhotoCrudController extends AbstractCrudController
                 ->addCssClass('front-photo'),
             BooleanField::new('isMyWorksPhoto', 'Slider A propos de moi')
                 ->addCssClass('ismyworks-photo'),
-            AssociationField::new('prestationType', 'Type de prestation')
-                ->setFormType(EntityType::class)
-                ->addCssClass('prestationtype-photo'),
-            AssociationField::new('prestation', 'Prestation')
-                ->setFormType(EntityType::class)
-                ->addCssClass('prestation-photo'),
+            TextField::new('prestationType', 'Type de prestation')
+                ->hideWhenCreating()
+                ->setDisabled(true),
+            TextField::new('prestation', 'Prestation')
+                ->hideWhenCreating()
+                ->setDisabled(true),
             ArrayField::new('tags', 'Tags')
         ];
     }

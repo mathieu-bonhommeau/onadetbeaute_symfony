@@ -1,5 +1,5 @@
 <?php
-# src/EventSubscriber/EasyAdminSubscriber.php
+
 namespace App\EventSubscriber;
 
 use App\Entity\Photo;
@@ -9,7 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeCrudActionEvent;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityUpdatedEvent;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 
-class EasyAdminSubscriber implements EventSubscriberInterface
+class EasyAdminPhotoSubscriber implements EventSubscriberInterface
 {
     private $photoRepository;
     

@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Prestation;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -16,6 +17,14 @@ class PrestationCrudController extends AbstractCrudController
     public static function getEntityFqcn(): string
     {
         return Prestation::class;
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud->setEntityLabelInSingular('Prestation')
+            ->setPageTitle('index', 'Prestations')
+            ->setPageTitle('new', 'Ajouter une prestation')
+            ->setPageTitle('edit', 'Modifier une prestation');
     }
 
     public function configureFields(string $pageName): iterable

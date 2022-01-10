@@ -3,6 +3,12 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class UserCrudController extends AbstractCrudController
@@ -12,14 +18,21 @@ class UserCrudController extends AbstractCrudController
         return User::class;
     }
 
-    /*
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud->setEntityLabelInSingular('Utilisateur')
+            ->setPageTitle('index', 'Utilisateurs')
+            ->setPageTitle('new', 'Ajouter un utilisateur')
+            ->setPageTitle('edit', 'Modifier un utilisateur');
+    }
+    
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            IdField::new('id')->hideOnForm(),
+            EmailField::new('email', 'Email'),
+            TextField::new('username', 'Nom d\'utilisateur'),
+            TextField::new('password')->setFormType(PasswordType::class),
         ];
     }
-    */
 }

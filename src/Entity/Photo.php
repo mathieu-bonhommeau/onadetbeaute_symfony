@@ -83,7 +83,7 @@ class Photo
         return $this->path;
     }
 
-    public function setPath(string $path): self
+    public function setPath($path): self
     {
         if ($path === '') {
             throw new \Exception('Cet élément ne peut être vide');
@@ -103,7 +103,7 @@ class Photo
         // otherwise the event listeners won't be called and the file is lost
         if ($image) {
             // if 'updatedAt' is not defined in your entity, use another property
-            $this->updatedAt = new \DateTime('now');
+            $this->createdAt = new \DateTime('now');
         }
     }
 
