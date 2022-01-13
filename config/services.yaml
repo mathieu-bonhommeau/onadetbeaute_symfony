@@ -30,3 +30,9 @@ services:
         tags:
             - name : 'doctrine.event_subscriber'
               connection: 'default'
+    
+    app.menu_builder:
+        class: App\Menu\Builder
+        arguments: ["@knp_menu.factory"]
+        tags:
+            - { name: knp_menu.menu_builder, method: mainMenu, alias: main }

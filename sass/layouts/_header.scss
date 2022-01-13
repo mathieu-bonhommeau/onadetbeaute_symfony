@@ -1,6 +1,8 @@
 .header-container {
     width: 100vw;
     background-color: $headerBGColor;
+    position: relative;
+    height: 100vh;
 }
 
 .header {
@@ -16,13 +18,8 @@
 .nav-container {
     width: 100%;
     background-color: $principalMenuBg;
-}
-
-.principal-menu {
-    display: flex;
-
-    &__item {
-        list-style: none;
-        margin-right: 2em;
-    }
+    padding: 0.3em;
+    box-shadow: 0px 2px 2px #919296;
+    position: relative;
+    z-index: 1;
 }

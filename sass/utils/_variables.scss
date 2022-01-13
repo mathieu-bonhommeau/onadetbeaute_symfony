@@ -1,9 +1,8 @@
 /*Variables*/
 
-$fontFamily: 'Slabo 27px',
-serif;
-$titleFontFamily: 'Slabo 27px',
-serif;
+$fontFamily: 'Slabo 27px', serif;
+$titleFontFamily: 'Slabo 27px', serif;
+
 $baseFontSize: 16px;
 $bodyBGColor: #f7f7fa;
 $baseFontColor: #000;
@@ -21,13 +20,12 @@ $secColor: #fc466b;
 
 /*Principal menu*/
 $principalMenuBg: rgba(255,255,255,0.8);
+$menu-text-size: 1.2em;
+$menu-text-color: #601528;
+$menu-text-color-hover: #302e44;
 
-/*Menu Color*/
-$menuTextColor: $linkColor;
-$menuTextActiveColor: $linkColor;
+/* Text */
+$text-color: #2a2a2a;
 
-$mobileMenuBg: #000;
-$desktopMenuTextColor: #fff;
-$desktopMenuDropDownBg: $linkColor;
-$borderColor: #e8e8e8;
-
+/* Color */
+$tomato: tomato;

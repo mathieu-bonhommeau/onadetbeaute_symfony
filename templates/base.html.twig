@@ -38,27 +38,38 @@
 
 	<body>
 		<div class="header-container">
+			<!-- Balls background -->
+			<div class="ball ball--1 ball--small"></div>
+			<div class="ball ball--2 ball--big"></div>
+			<div class="ball ball--3 ball--small"></div>
+			<div class="ball ball--4 ball--big"></div>
+			<div class="ball ball--5 ball--small"></div>
+			<div class="ball ball--6 ball--big"></div>
+			<div class="ball ball--7 ball--big"></div>
+			<div class="ball ball--8 ball--big"></div>
+			<div class="ball ball--9 ball--small"></div>
+			<div class="ball ball--10 ball--big"></div>
 			<!-- Header -->
 			<header class="container">
 				<img src="./images/logo-new.png" alt="Logo O'Nad&Beauté" class="header__logo">
 			</header>
 			<!-- Principal navigation -->
 			<div class="nav-container">
-				<div class="container">
+				<div class="container navbar">
 					<nav class="principal-nav">
-						<ul class="menu principal-menu">
-							<li class="principal-menu__item">A changer</li>
-							<li class="principal-menu__item">A changer</li>
-							<li class="principal-menu__item">A changer</li>
-							<li class="principal-menu__item">A changer</li>
-							<li class="principal-menu__item">A changer</li>
-							<li class="principal-menu__item">A changer</li>
-							<li class="principal-menu__item">A changer</li>
-						</ul>
+						<!-- Generate principal menu with knd Menu bundle -->
+						{{ knp_menu_render('main') }}
 					</nav>
-					<div class="phone-nav"></div>
+					<div class="phone-nav">
+						<svg fill="none" height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg">
+							<path d="M17.5 2.5H7.5C6.39543 2.5 5.5 3.39543 5.5 4.5V20.5C5.5 21.6046 6.39543 22.5 7.5 22.5H17.5C18.6046 22.5 19.5 21.6046 19.5 20.5V4.5C19.5 3.39543 18.6046 2.5 17.5 2.5Z" stroke="#FF6347" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+							<path d="M12.5 18.5H12.51" stroke="#FF6347" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+						</svg>
+						{{ onadetbeauteDatas.phone }}
+					</div>
 				</div>
 			</div>
+			
 			<!-- Banner of presentation -->
 			<div class="container presentation-banner" role="banner">
 				<div class="prestations-banner__slide"></div>
