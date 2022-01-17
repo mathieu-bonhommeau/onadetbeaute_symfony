@@ -5,9 +5,13 @@
 @import './utils/variables';
 @import './utils/mixins';
 
+@import './base/colors';
+
 @import './base/base';
 
 @import './layouts/header';
 @import './layouts/menu';
+@import './layouts/slide-presentation';
 
 @import './components/balls';
+@import './components/button';

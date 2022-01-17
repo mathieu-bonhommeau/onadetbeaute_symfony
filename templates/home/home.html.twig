@@ -2,6 +2,33 @@
 
 {% block title %}O'Nad&Beauté{% endblock %}
 
-{% block body %}
+{% block header %}
+    <!-- Banner of presentation -->
+    <div class="container presentations-banner" role="banner">
+        <div class="presentations-banner__slide">
+            <div class="slide-presentation slide-1">
+                <h1 class="slide-presentation__title">Prothésiste Ongulaire <span class="orange">Nail Art</span></h1>
+                <a href="{{ path('type-prestation') }}" class="btn btn--orange">En savoir plus</a>
+            </div>
+            <div class="slide-presentation slide-2">
+                <h1 class="slide-presentation__title">Extensions de <span class="orange">Cils</span></h1>
+                <a href="{{ path('type-prestation') }}" class="btn btn--orange">En savoir plus</a>
+            </div>
+            <div class="slide-presentation slide-3">
+                <h1 class="slide-presentation__title">Vente de <span class="orange">Bijoux</span> et <span class="orange">Maquillage</span></h1>
+                <a href="{{ path('type-prestation') }}" class="btn btn--orange">En savoir plus</a>
+            </div>
+        </div>
+        <div class="presentations-banner__img">
+            <img src="{{ photoDir ~ frontPhoto.path }}" alt="">
+        </div>
+    </div>
+{% endblock %}
 
+{% block body %}
+    
+{% endblock %}
+
+{% block scripts %}
+    <script type="module" src="{{ asset('/js/pages/index.js') }}"></script>
 {% endblock %}
