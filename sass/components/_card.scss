@@ -1,0 +1,65 @@
+.card {
+    padding: 1.5em;
+    background-color: $broken-white;
+    border-top-left-radius: $card-radius;
+    border-bottom-right-radius: $card-radius;
+    box-shadow: $shadow-card;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.035) perspective(1px) translateZ(0);
+        backface-visibility: hidden;
+    }
+
+    &__title {
+        @include title-style;
+        margin-bottom: 0.5em;
+        padding-bottom: 0.3em;
+        position: relative;
+
+        &::after {
+            @include border-after;
+        }
+
+        &::before {
+            @include border-before;
+        }
+    }
+    &__img {
+
+        img {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+        }
+    }
+
+    &__text {
+        line-height: 1.7em;
+    }
+
+    &__link {
+        position: absolute;
+        bottom: 0.5em;
+        right: 1em;
+        transition: all 0.3s ease;
+        overflow: hidden;
+
+        &::after {
+            content: '';
+            width: 1em;
+            transform: translateX(1em);
+            padding-left: 1em;
+            height: 2px;
+            position: absolute;
+            bottom: 43%;
+            background-color: $tomato;
+            transition: all 0.3s ease;
+        }
+
+        &:hover {
+            padding: 0.5em 4em 0.5em 1em;
+        }
+    }
+}

@@ -14,4 +14,12 @@
             transition: background-color ease-in-out 200ms;
         }
     }
+
+    &--outline-orange {
+        background-color: transparent;
+        color: $tomato;
+        border: 2px solid $tomato;
+        font-weight: normal;
+        padding: 0.5em 1em;
+    }
 }

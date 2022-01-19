@@ -4,6 +4,7 @@
 
 @import './utils/variables';
 @import './utils/mixins';
+@import './utils/utils';
 
 @import './base/colors';
 
@@ -12,6 +13,9 @@
 @import './layouts/header';
 @import './layouts/menu';
 @import './layouts/slide-presentation';
+@import './layouts/type-prestations';
+@import './layouts/my-activity';
 
 @import './components/balls';
 @import './components/button';
+@import './components/card';

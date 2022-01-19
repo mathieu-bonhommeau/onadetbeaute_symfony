@@ -37,10 +37,7 @@
     text-align: center;
 
     &__title {
-        font-family: 'brushsci';
-        color: $title-color;
-        font-size: $h1-size;
-        font-weight: normal;
+        @include title-style;
     }
 
     .btn {
@@ -79,13 +76,13 @@
     }
     4% {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1.1);
     }
     7% {
         transform: scale(0.92);
     }
     10% {
-        transform: scale(1);
+        transform: scale(1.05);
     }
     13% {
         transform: scale(0.97);

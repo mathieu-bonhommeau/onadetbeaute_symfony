@@ -1,11 +1,41 @@
+// Style of menu
 @mixin menu-style {
     font-weight: 700;
     color: $menu-text-color;
     font-size: $menu-text-size;
 }
 
+// Center a content in a box
 @mixin center-box {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+// Style of title
+@mixin title-style {
+    font-family: 'brushsci';
+    color: $title-color;
+    font-size: $h1-size;
+    font-weight: normal;
+}
+
+//PseudoElement after - line
+@mixin border-after {
+    content: '';
+    background-color: $tomato;;
+    width: 42px;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+@mixin border-before {
+    content: '';
+    background-color: $tomato;;
+    width: 30px;
+    height: 1px;
+    position: absolute;
+    bottom: 6px;
+    left: 0;
 }

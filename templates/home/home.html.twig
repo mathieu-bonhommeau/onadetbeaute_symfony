@@ -2,33 +2,84 @@
 
 {% block title %}O'Nad&Beauté{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="/bundles/slick-1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="/bundles/slick-1.8.1/slick/slick-theme.css"/>
+{% endblock %}
+
 {% block header %}
     <!-- Banner of presentation -->
-    <div class="container presentations-banner" role="banner">
+    <h1 class="hide">Prothésiste ongulaire en Vendée</h1>
+    <section class="container presentations-banner" role="banner">
         <div class="presentations-banner__slide">
             <div class="slide-presentation slide-1">
-                <h1 class="slide-presentation__title">Prothésiste Ongulaire <span class="orange">Nail Art</span></h1>
+                <h2 class="slide-presentation__title">Prothésiste Ongulaire <span class="orange">Nail Art</span></h1>
                 <a href="{{ path('type-prestation') }}" class="btn btn--orange">En savoir plus</a>
             </div>
             <div class="slide-presentation slide-2">
-                <h1 class="slide-presentation__title">Extensions de <span class="orange">Cils</span></h1>
+                <h2 class="slide-presentation__title">Extensions de <span class="orange">Cils</span></h1>
                 <a href="{{ path('type-prestation') }}" class="btn btn--orange">En savoir plus</a>
             </div>
             <div class="slide-presentation slide-3">
-                <h1 class="slide-presentation__title">Vente de <span class="orange">Bijoux</span> et <span class="orange">Maquillage</span></h1>
+                <h2 class="slide-presentation__title">Vente de <span class="orange">Bijoux</span> et <span class="orange">Maquillage</span></h1>
                 <a href="{{ path('type-prestation') }}" class="btn btn--orange">En savoir plus</a>
             </div>
         </div>
         <div class="presentations-banner__img">
-            <img src="{{ photoDir ~ frontPhoto.path }}" alt="">
+            <img src="{{ photoDir ~ principalPhoto.path }}" alt="">
         </div>
-    </div>
+    </section>
 {% endblock %}
 
 {% block body %}
+    <!-- Section prestation types -->
+    <section class="container prestation-types">
+        {% for prestationType in prestationTypes %}
+            <div class="card card-prestation-type">
+                <div class="card__title">{{ prestationType.name }}</div>
+                <div class="card__img">
+                    <img src="{{ photoDir ~ prestationType.photoInPromote.path }}" alt="Image présentant la prestation : {{ prestationType.name }}">
+                </div>
+                <div class="card__description">
+                    <p class="card__text">{{ prestationType.description|striptags }}</p>
+                </div>
+                <a href="{{ path('type-prestation') }}" class="card__link btn btn--outline-orange">Détails et Tarifs</a>
+            </div>
+        {% endfor %}
+    </section>
+
+    <!-- Section my work -->
+    <div class="my-activity-container">
+        <section class="container my-activity">
+            <div class="my-activity__text">
+                <h2 class="my-activity__title card__title">Déplacement à domicile</h2>
+                <div class="my-activity__catchphrase">
+                    <p>Je propose mes services</p>
+                    <p class="orange bold">Autour de La Roche sur Yon</p>
+                </div>
+                <p class="my-activity__paragraph">{{ onadetbeaute.aboutMyActivity|striptags }}</p>
+                <a href="#contact" class="my-activity__link btn btn--orange">Contactez moi !!!</a>
+            </div>
+            <div class="my-activity__slider">
+                {% for photo in frontSliderPhotos %}
+                    <div class="my-activity__photo">
+                        <img src="{{ photoDir ~ photo.path }}" alt="{{ photo.name }}">
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+    <div class="container link-photos">
+        <a href="{{ path('photos') }}" class="card__link btn btn--outline-orange">Toutes les photos</a>
+    </div>
     
 {% endblock %}
 
 {% block scripts %}
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="/bundles/slick-1.8.1/slick/slick.min.js"></script>
+
+    <script type="text/javascript" src="/js/slick/slick.js"></script>
     <script type="module" src="{{ asset('/js/pages/index.js') }}"></script>
 {% endblock %}

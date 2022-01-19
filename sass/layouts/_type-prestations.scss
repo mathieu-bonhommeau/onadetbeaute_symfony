@@ -1,0 +1,12 @@
+.prestation-types {
+    @include center-box;
+    justify-content: space-around;
+
+    .card {
+        width: 26%;
+    }
+}
+
+.card-prestation-type {
+    height: 500px;
+}

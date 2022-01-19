@@ -10,8 +10,13 @@ $baseFontColor: #000;
 $linkColor: #f2989b;
 $linkColorHover: #e88185;
 
+/* Color */
+$tomato: tomato;
+$white: #ffffff;
+$broken-white: #fbf6f5;
+
 /*Header*/
-$headerBGColor: #fbf6f5;
+$headerBGColor: $broken-white;
 $headerTextColor: #fff;
 
 $maxWidth: 1400px;
@@ -28,13 +33,14 @@ $menu-text-color-hover: #302e44;
 $text-color: #2a2a2a;
 $title-color: #601528;
 $h1-size: 3em;
-
-/* Color */
-$tomato: tomato;
-$white: #ffffff;
+$catchphrase-size: 1.3em;
 
 /* Radius */
 $card-radius: 20px;
 
 /* shadow */
+$shadow-card: 0px 0px 15px #919296;
 $shadow-img: 0px 0px 5px #919296;
+
+/* Marging */
+$section-margin: 100px;
