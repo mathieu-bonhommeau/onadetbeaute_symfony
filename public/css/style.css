@@ -410,6 +410,7 @@ body {
   background-image: url("../images/background_white.jpg");
   background-attachment: fixed;
   overflow-x: hidden;
+  width: 100vw;
 }
 
 .header-container {
@@ -429,7 +430,6 @@ body {
 }
 
 .nav-container {
-  width: 100%;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 0.3em;
   box-shadow: 0px 2px 2px #919296;
@@ -600,13 +600,13 @@ body {
 
 .my-activity {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-top: 10px;
   padding-bottom: 30px;
   position: relative;
 }
 .my-activity__text {
-  padding: 2em 3em;
+  padding: 2em 3em 2em 2em;
   width: 40%;
 }
 .my-activity__title {
@@ -647,6 +647,10 @@ body {
 }
 .link-photos a {
   bottom: -15px;
+}
+
+.social-posts__text {
+  padding-left: 2em;
 }
 
 .ball {

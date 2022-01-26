@@ -72,6 +72,21 @@
     <div class="container link-photos">
         <a href="{{ path('photos') }}" class="card__link btn btn--outline-orange">Toutes les photos</a>
     </div>
+
+    <div class="social-posts-container">
+        {% for post in facebookPosts %}
+        <img src="{{ post.picture }}">
+        {% endfor %}
+
+        <a href='https://www.facebook.com/v12.0/dialog/oauth?client_id={{ onadetbeaute.facebookClientId }}&redirect_uri={{ onadetbeaute.facebookRedirectUri }}&state=987654321'>Connecter le site à facebook</a>
+        <section class="container social-posts">
+            <div class="social-posts__text">
+                <h2 class="social-posts__title card__title">Mes derniers posts</h2>
+            </div>
+            <div class="social-posts__slide"></div>
+            <div class="social-posts__links"></div>
+        </section>
+    </div>
     
 {% endblock %}
 

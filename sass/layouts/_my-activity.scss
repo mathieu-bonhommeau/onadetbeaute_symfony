@@ -5,13 +5,13 @@
 
 .my-activity {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding-top: 10px;
     padding-bottom: 30px;
     position: relative;
 
     &__text {
-        padding: 2em 3em;
+        padding: 2em 3em 2em 2em;
         width: 40%;
     }
 

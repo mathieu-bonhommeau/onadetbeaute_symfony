@@ -57,6 +57,36 @@ class OnadEtBeaute
      */
     private $aboutMyActivity;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $facebookToken;
+
+    /**
+     * @ORM\Column(type="bigint")
+     */
+    private $facebookClientId;
+
+    /**
+     * @ORM\Column(type="bigint")
+     */
+    private $facebookUserId;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $facebookClientSecret;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $facebookRedirectUri;
+
+    /**
+     * @ORM\Column(type="bigint")
+     */
+    private $facebookPageId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -176,6 +206,78 @@ class OnadEtBeaute
             throw new \Exception('Cet élément ne peut être vide');
         }
         $this->aboutMyActivity = $aboutMyActivity;
+
+        return $this;
+    }
+
+    public function getFacebookToken(): ?string
+    {
+        return $this->facebookToken;
+    }
+
+    public function setFacebookToken(?string $facebookToken): self
+    {
+        $this->facebookToken = $facebookToken;
+
+        return $this;
+    }
+
+    public function getFacebookClientId(): ?int
+    {
+        return $this->facebookClientId;
+    }
+
+    public function setFacebookClientId(int $facebookClientId): self
+    {
+        $this->facebookClientId = $facebookClientId;
+
+        return $this;
+    }
+
+    public function getFacebookUserId(): ?int
+    {
+        return $this->facebookUserId;
+    }
+
+    public function setFacebookUserId(int $facebookUserId): self
+    {
+        $this->facebookUserId = $facebookUserId;
+
+        return $this;
+    }
+
+    public function getFacebookClientSecret(): ?string
+    {
+        return $this->facebookClientSecret;
+    }
+
+    public function setFacebookClientSecret(string $facebookClientSecret): self
+    {
+        $this->facebookClientSecret = $facebookClientSecret;
+
+        return $this;
+    }
+
+    public function getFacebookRedirectUri(): ?string
+    {
+        return $this->facebookRedirectUri;
+    }
+
+    public function setFacebookRedirectUri(string $facebookRedirectUri): self
+    {
+        $this->facebookRedirectUri = $facebookRedirectUri;
+
+        return $this;
+    }
+
+    public function getFacebookPageId(): ?int
+    {
+        return $this->facebookPageId;
+    }
+
+    public function setFacebookPageId(int $facebookPageId): self
+    {
+        $this->facebookPageId = $facebookPageId;
 
         return $this;
     }
