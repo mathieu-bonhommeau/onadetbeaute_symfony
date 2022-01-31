@@ -3,8 +3,8 @@
 {% block title %}O'Nad&Beauté{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="/bundles/slick-1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="/bundles/slick-1.8.1/slick/slick-theme.css"/>
+    <<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
 {% endblock %}
 
 {% block header %}
@@ -75,15 +75,15 @@
 
     <div class="social-posts-container">
         <a href='https://www.facebook.com/v12.0/dialog/oauth?client_id={{ onadetbeaute.facebookClientId }}&redirect_uri={{ onadetbeaute.facebookRedirectUri }}&state=987654321'>Connecter le site à facebook</a>
-        <section class="container social-posts">
-            <div class="social-posts__text">
+        <section class="social-posts">
+            <div class="social-posts__text container">
                 <h2 class="social-posts__title card__title">Mes derniers posts</h2>
             </div>
             <div class="social-posts__slide">
                 <div class="bloc-iframes">
                     {% for post in facebookPosts|slice(0, 10) %}
                         {% set id = (post.facebookId|split('_'))[1] %}
-                        <div class="posts-iframe">
+                        <div class="posts-iframe card">
                             <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FONadetBeaute%2Fposts%2F{{ id }}&show_text=true" scrolling="yes" frameborder="0" allowfullscreen="true"></iframe>
                         </div>
                     {% endfor %}
@@ -98,7 +98,7 @@
 {% block scripts %}
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="/bundles/slick-1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
 
     <script type="text/javascript" src="/js/slick/slick.js"></script>
     <script type="text/javascript" src="/js/slick/facebook-slider.js"></script>

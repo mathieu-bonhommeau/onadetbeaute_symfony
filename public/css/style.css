@@ -651,6 +651,38 @@ body {
 
 .social-posts__text {
   padding-left: 2em;
+  margin-bottom: 3em;
+}
+.social-posts .slick-list {
+  overflow: visible;
+}
+.social-posts .slick-prev {
+  left: 40px;
+  z-index: 100;
+}
+.social-posts .slick-prev:before {
+  color: tomato;
+  font-size: 40px;
+}
+.social-posts .slick-next {
+  right: 40px;
+  z-index: 100;
+}
+.social-posts .slick-next:before {
+  color: tomato;
+  font-size: 40px;
+}
+
+.posts-iframe {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.posts-iframe iframe {
+  height: 500px;
+  width: 100%;
+}
+.posts-iframe.slick-slide {
+  height: auto;
 }
 
 .ball {
