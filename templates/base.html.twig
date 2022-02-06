@@ -25,11 +25,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!-- Stylesheets -->
-		{% block stylesheets %}
-		{% endblock %}
+		{% block stylesheets %}{% endblock %}
 		<link rel="stylesheet" href="css/style.css">
 
 		<meta name="theme-color" content="#fafafa">
+
+		<script src="https://kit.fontawesome.com/6f3cd41abe.js" crossorigin="anonymous"></script>
+
 	</head>
 
 	<body>
@@ -68,6 +70,16 @@
 			{% block header %}{% endblock %}
 		</div>
 		{% block body %}{% endblock %}
+
+		<div class="contact-container">
+			<section class="contact container">
+				<h2 class="contact__title">Contactez moi..!</h2>
+				<div class="contact__form">
+					{{ render(controller('App\\Controller\\ContactController:contactForm')) }}
+				</div>
+			</section>
+		</div>
+
 		{% block scripts %}{% endblock %}
 	</body>
 </html>

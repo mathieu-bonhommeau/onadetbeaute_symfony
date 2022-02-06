@@ -37,6 +37,9 @@ class HomeController extends AbstractController
         $frontSliderPhotos = $this->manager->getRepository(Photo::class)
             ->findBy(['frontPhoto' => true]);
 
+        $isMyWorksPhotos = $this->manager->getRepository(Photo::class)
+            ->findBy(['isMyWorksPhoto' => true]);
+
         $onadetbeaute = $this->manager->getRepository(OnadEtBeaute::class)
             ->findAll()[0];
 
@@ -52,6 +55,7 @@ class HomeController extends AbstractController
             'principalPhoto' => $principalPhoto,
             'onadetbeaute' => $onadetbeaute,
             'frontSliderPhotos' => $frontSliderPhotos,
+            'isMyWorksPhotos' => $isMyWorksPhotos,
             'facebookPosts' => $facebookPosts
         ]);
     }

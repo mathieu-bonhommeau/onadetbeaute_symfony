@@ -1,0 +1,14 @@
+.icon {
+    text-align: center;
+    font-size: 1em;
+    padding: 1em;
+    color: $tomato;
+    border: solid 1px $tomato;
+
+    &:hover {
+        border-radius: 5px;
+        color: $menu-text-color-hover;
+        transition: color 0.3s ease, border-radius 0.3s ease;
+        
+    }
+}

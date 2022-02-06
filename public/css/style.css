@@ -593,62 +593,6 @@ body {
   height: 500px;
 }
 
-.my-activity-container {
-  width: 100vw;
-  background: linear-gradient(#fbf6f5, #ffffff, #fbf6f5);
-}
-
-.my-activity {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 10px;
-  padding-bottom: 30px;
-  position: relative;
-}
-.my-activity__text {
-  padding: 2em 3em 2em 2em;
-  width: 40%;
-}
-.my-activity__title {
-  margin-top: 0;
-}
-.my-activity__catchphrase {
-  font-size: 1.3em;
-  margin-top: 3em;
-}
-.my-activity__slider {
-  width: 40%;
-}
-.my-activity__link {
-  margin-top: 3em;
-  position: absolute;
-}
-.my-activity__photo {
-  padding: 2em;
-  height: 350px;
-}
-.my-activity__photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  box-shadow: 0px 0px 15px #919296;
-  border-top-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-
-.slick-dots li button:before {
-  font-size: 12px;
-}
-
-.link-photos {
-  text-align: right;
-  margin-top: 40px;
-  position: relative;
-}
-.link-photos a {
-  bottom: -15px;
-}
-
 .social-posts__text {
   padding-left: 2em;
   margin-bottom: 3em;
@@ -672,6 +616,12 @@ body {
   color: tomato;
   font-size: 40px;
 }
+.social-posts__links {
+  margin-top: 3em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
 
 .posts-iframe {
   margin-left: 25px;
@@ -683,6 +633,97 @@ body {
 }
 .posts-iframe.slick-slide {
   height: auto;
+}
+
+.my-activity, .who-i-am {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  position: relative;
+}
+.my-activity__text, .who-i-am__text {
+  padding: 2em 3em 2em 2em;
+  width: 40%;
+}
+.my-activity__title, .who-i-am__title {
+  margin-top: 0;
+}
+.my-activity__catchphrase, .who-i-am__catchphrase {
+  font-size: 1.3em;
+  margin-top: 3em;
+}
+.my-activity__slider, .who-i-am__slider {
+  width: 40%;
+}
+.my-activity__link, .who-i-am__link {
+  margin-top: 3em;
+  position: absolute;
+}
+.my-activity__photo, .who-i-am__photo {
+  padding: 2em;
+}
+.my-activity__photo img, .who-i-am__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 0px 0px 15px #919296;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.my-activity__photo {
+  height: 350px;
+}
+
+.who-i-am {
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+.who-i-am__photo {
+  height: 500px;
+}
+
+.slider-section-container {
+  width: 100vw;
+  background: linear-gradient(#fbf6f5, #ffffff, #fbf6f5);
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+}
+
+.link-photos {
+  text-align: right;
+  margin-top: 40px;
+  position: relative;
+}
+.link-photos a {
+  bottom: -15px;
+}
+
+.contact-container {
+  background-color: #232733;
+}
+.contact-container .container {
+  max-width: 992px;
+}
+
+.contact {
+  margin-top: 0;
+}
+.contact__title {
+  font-family: "brushsci";
+  color: #601528;
+  font-size: 3em;
+  font-weight: normal;
+  color: tomato;
+  margin-top: 0;
+  padding: 1rem 5rem 0.5rem 5rem;
+  border-bottom: solid 1px #ffffff;
+}
+.contact__form {
+  padding: 0.5rem 5rem 0.5rem 5rem;
 }
 
 .ball {
@@ -913,6 +954,39 @@ body {
 }
 .card__link:hover {
   padding: 0.5em 4em 0.5em 1em;
+}
+
+.icon {
+  text-align: center;
+  font-size: 1em;
+  padding: 1em;
+  color: tomato;
+  border: solid 1px tomato;
+}
+.icon:hover {
+  border-radius: 5px;
+  color: #302e44;
+  transition: color 0.3s ease, border-radius 0.3s ease;
+}
+
+.field {
+  width: 70%;
+  padding: 1em;
+  border-radius: 2em;
+  border: none;
+  margin-bottom: 1em;
+  outline: none;
+}
+.field--message {
+  width: 100%;
+}
+.field--submit {
+  cursor: pointer;
+}
+.field--submit:hover {
+  background-color: tomato;
+  color: #ffffff;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 /*# sourceMappingURL=style.css.map */

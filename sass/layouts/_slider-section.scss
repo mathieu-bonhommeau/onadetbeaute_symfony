@@ -1,9 +1,4 @@
-.my-activity-container {
-    width: 100vw;
-    background: linear-gradient($broken-white, $white, $broken-white);
-}
-
-.my-activity {
+.my-activity, .who-i-am {
     display: flex;
     justify-content: space-between;
     padding-top: 10px;
@@ -35,7 +30,6 @@
 
     &__photo {
         padding: 2em;
-        height: 350px;
 
         img {
             width: 100%;
@@ -46,6 +40,27 @@
             border-bottom-right-radius: $card-radius;
         }
     }
+}
+
+.my-activity {
+
+    &__photo {
+        height: 350px;
+    }
+}
+
+.who-i-am {
+    flex-direction: row-reverse;
+    justify-content: center;
+
+    &__photo {
+        height: 500px;
+    }
+}
+
+.slider-section-container {
+    width: 100vw;
+    background: linear-gradient($broken-white, $white, $broken-white);
 }
 
 .slick-dots li button:before {

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('.my-activity__slider').slick({
+    $('.slider').slick({
         dots: true,
         infinite: true,
         speed: 300,

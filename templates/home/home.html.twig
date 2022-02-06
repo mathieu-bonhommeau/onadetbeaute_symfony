@@ -3,7 +3,7 @@
 {% block title %}O'Nad&Beauté{% endblock %}
 
 {% block stylesheets %}
-    <<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
 {% endblock %}
 
@@ -49,7 +49,7 @@
     </section>
 
     <!-- Section my work -->
-    <div class="my-activity-container">
+    <div class="slider-section-container">
         <section class="container my-activity">
             <div class="my-activity__text">
                 <h2 class="my-activity__title card__title">Déplacement à domicile</h2>
@@ -60,7 +60,7 @@
                 <p class="my-activity__paragraph">{{ onadetbeaute.aboutMyActivity|striptags }}</p>
                 <a href="#contact" class="my-activity__link btn btn--orange">Contactez moi !!!</a>
             </div>
-            <div class="my-activity__slider">
+            <div class="my-activity__slider slider">
                 {% for photo in frontSliderPhotos %}
                     <div class="my-activity__photo">
                         <img src="{{ photoDir ~ photo.path }}" alt="{{ photo.name }}">
@@ -89,7 +89,32 @@
                     {% endfor %}
                  </div>
             </div>
-            <div class="social-posts__links"></div>
+            <div class="social-posts__links">
+                <a href="https://www.instagram.com/onadetbeaute"><i class="fab fa-instagram icon"></i></a>
+                <a href="https://www.facebook.com/ONadetBeaute/photos/?ref=page_internal"><i class="fab fa-facebook-f icon"></i></a>
+            </div>
+        </section>
+    </div>
+
+    <div class="slider-section-container">
+        <section class="container who-i-am">
+            <div class="who-i-am__text">
+                <h2 class="who-i-am__title card__title">Qui suis-je ?</h2>
+                <div class="who-i-am__catchphrase">
+                    <p>
+                        Diplômée d'un <span class="orange bold">CAP d'esthétique</span> et d'une formation<br>
+                        <span class="orange bold"><span class="orange bold">CAP d'esthétique</span>, je vous propose mes services ....
+                    </p>
+                </div>
+                <p class="who-i-am__paragraph">{{ onadetbeaute.aboutMe|striptags }}</p>
+            </div>
+            <div class="who-i-am__slider slider">
+                {% for photo in isMyWorksPhotos %}
+                    <div class="who-i-am__photo">
+                        <img src="{{ photoDir ~ photo.path }}" alt="{{ photo.name }}">
+                    </div>
+                {% endfor %}
+            </div>
         </section>
     </div>
     

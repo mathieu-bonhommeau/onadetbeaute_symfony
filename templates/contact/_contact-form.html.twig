@@ -1,0 +1,12 @@
+
+{% block body %}
+
+    {{ form_start(form, {'action': path('contact')}) }}
+        {{ form_row(form.fullName, {'attr': {'class': 'field', 'placeholder': 'Votre nom...'}}) }}
+        {{ form_row(form.email, {'attr': {'class': 'field', 'placeholder': 'Votre email...'}}) }}
+        {{ form_row(form.subject, {'attr': {'class': 'field', 'placeholder': 'Objet du message...'}}) }}
+        {{ form_row(form.message, {'attr': {'class': 'field field--message', 'placeholder': 'Votre message...', 'rows': 4}}) }}
+        {{ form_row(form.submit, {'attr': {'class': 'btn btn--outline-orange field--submit'}}) }}
+    {{ form_end(form) }}
+
+{% endblock %}

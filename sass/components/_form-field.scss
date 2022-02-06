@@ -1,0 +1,22 @@
+.field {
+    width: 70%;
+    padding: 1em;
+    border-radius: 2em;
+    border: none;
+    margin-bottom: 1em;
+    outline: none;
+
+    &--message {
+        width: 100%;
+    }
+
+    &--submit {
+        cursor: pointer;
+
+        &:hover {
+            background-color: $tomato;
+            color: $white;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+    }
+}
