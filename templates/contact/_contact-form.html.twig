@@ -1,12 +1,26 @@
-
+<!-- Fragment template for contact form which is displayed on all pages in the footer-->
 {% block body %}
 
-    {{ form_start(form, {'action': path('contact')}) }}
-        {{ form_row(form.fullName, {'attr': {'class': 'field', 'placeholder': 'Votre nom...'}}) }}
-        {{ form_row(form.email, {'attr': {'class': 'field', 'placeholder': 'Votre email...'}}) }}
-        {{ form_row(form.subject, {'attr': {'class': 'field', 'placeholder': 'Objet du message...'}}) }}
-        {{ form_row(form.message, {'attr': {'class': 'field field--message', 'placeholder': 'Votre message...', 'rows': 4}}) }}
-        {{ form_row(form.submit, {'attr': {'class': 'btn btn--outline-orange field--submit'}}) }}
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    {{ form_start(form) }}
+        <div class="contact_email formData">
+            {{ form_row(form.email, {'attr': {'class': 'field', 'placeholder': 'Votre email...'}}) }}
+        </div>
+        <div class="contact_subject formData">
+            {{ form_row(form.subject, {'attr': {'class': 'field', 'placeholder': 'Objet du message...'}}) }}
+        </div>
+        <div class="contact_message formData">
+            {{ form_row(form.message, {'attr': {'class': 'field field--message', 'placeholder': 'Votre message...', 'rows': 4}}) }}
+        </div>
+        <div class="contact_submit formData">
+            <button class="btn btn--outline-orange field--submit" type="button">Envoyer le message</button>
+            <div class="message-area"></div>
+        </div>
     {{ form_end(form) }}
 
 {% endblock %}

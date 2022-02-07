@@ -20,3 +20,42 @@
         }
     }
 }
+
+.formData {
+    &[data-error]::after {
+        content: attr(data-error);
+        font-size: 0.8em;
+        color: #e54858;
+        display: block;
+        margin-bottom: 1.5em;
+        padding-left: 1em;
+        text-align: left;
+        line-height: 0.3;
+        opacity: 0;
+        transition: 0.3s;
+    }
+
+    &[data-error-visible="true"]::after {
+        opacity: 1;
+    }
+
+    &[data-error-visible="true"] .text-control {
+        border: 2px solid #e54858;
+    }
+}
+
+.contact_submit{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .alert {
+        margin: 0;
+
+        &--success {
+            color: $tomato;
+            border-bottom: 2px solid $tomato;
+            padding-bottom: 0.5em;
+        }
+    }
+}
