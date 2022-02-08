@@ -7,9 +7,11 @@ use App\API\FacebookAPI;
 use App\Entity\OnadEtBeaute;
 use App\Entity\PrestationType;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
@@ -48,8 +50,14 @@ class HomeController extends AbstractController
             $this->facebookApi->getAccessToken($request->get('code'));
         }
 
-        $facebookPosts = $this->facebookApi->getPosts();
-        
+        // Use the cache for retrieve facebook posts
+        $cache = new FilesystemAdapter();
+        $facebookPosts = $cache->get('posts_facebook', function (ItemInterface $item) {
+            $item->expiresAfter(3600);
+
+            return $this->facebookApi->getPosts();
+        });
+
         return $this->render('home/home.html.twig', [
             'prestationTypes' => $prestationTypes,
             'principalPhoto' => $principalPhoto,

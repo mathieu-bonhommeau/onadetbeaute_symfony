@@ -42,3 +42,11 @@
     display: flex;
     align-items: center;
 }
+
+.footer-menu {
+    
+    &__item {
+        border-bottom: 1px solid $footer-border-color;
+        width: 50%;
+    }
+}

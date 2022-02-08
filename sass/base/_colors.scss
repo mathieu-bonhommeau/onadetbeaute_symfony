@@ -1,3 +1,10 @@
 .orange {
     color: $tomato;
+
+    &--hover {
+        &:hover {
+            color: $white;
+            transition: color 0.4s ease;
+        }
+    }
 }

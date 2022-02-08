@@ -374,6 +374,7 @@ template {
 /* Radius */
 /* shadow */
 /* Marging */
+/* Border */
 .hide {
   display: none;
 }
@@ -384,6 +385,10 @@ template {
 
 .orange {
   color: tomato;
+}
+.orange--hover:hover {
+  color: #ffffff;
+  transition: color 0.4s ease;
 }
 
 html {
@@ -480,6 +485,11 @@ body {
   font-size: 1.08em;
   display: flex;
   align-items: center;
+}
+
+.footer-menu__item {
+  border-bottom: 1px solid #373b48;
+  width: 50%;
 }
 
 .presentations-banner {
@@ -704,6 +714,8 @@ body {
 
 .contact-container {
   background-color: #232733;
+  padding-bottom: 3em;
+  border-bottom: 1px solid #373b48;
 }
 .contact-container .container {
   max-width: 992px;
@@ -724,6 +736,49 @@ body {
 }
 .contact__form {
   padding: 0.5rem 5rem 0.5rem 5rem;
+}
+
+.footer-container {
+  background-color: #232733;
+}
+
+.footer__parts {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #373b48;
+  color: #919296;
+  padding: 2em;
+}
+.footer__parts * {
+  list-style: none;
+  padding-left: 0;
+}
+.footer__parts > div {
+  width: 25%;
+  padding: 0 3%;
+}
+.footer__parts li {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0;
+  gap: 1em;
+}
+.footer__parts.footer-down {
+  align-items: center;
+}
+.footer__parts.footer-down * {
+  width: auto;
+}
+.footer h3 {
+  color: #ffffff;
+}
+
+.footer-socials a {
+  margin-right: 5px;
+}
+.footer-socials .icon:hover {
+  color: #ffffff;
+  border: 1px solid #ffffff;
 }
 
 .ball {

@@ -1,5 +1,7 @@
 .contact-container {
     background-color: $bg-footer;
+    padding-bottom: 3em;
+    border-bottom: 1px solid $footer-border-color;
 
     .container {
         max-width: 992px;

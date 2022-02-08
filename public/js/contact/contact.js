@@ -61,10 +61,12 @@ submit.addEventListener('click', (event) => {
                 return res.json()
             }
         }).then((value) => {
+            if (value === undefined) {
+                value = 'La connexion avec le serveur est impossible !!'
+            }
             document.querySelector('.message-area').innerHTML = `<p class="alert alert--success">${value}</p>`
             document.querySelectorAll('.formData .field').forEach(element => {
                 element.value = ''
-                //element.innerHTML = ''
             })
         }).catch ((err) => {
             console.log(err)

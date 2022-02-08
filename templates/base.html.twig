@@ -47,6 +47,7 @@
 			<div class="ball ball--8 ball--big"></div>
 			<div class="ball ball--9 ball--small"></div>
 			<div class="ball ball--10 ball--big"></div>
+
 			<!-- Header -->
 			<header class="container">
 				<img src="./images/logo-new.png" alt="Logo O'Nad&Beauté" class="header__logo">
@@ -80,7 +81,92 @@
 			</section>
 		</div>
 
+		<div class="footer-container">
+			<footer class="footer container">
+				<div class="footer__parts">
+					<div class="footer-menu">
+						<h3>Menu</h3>
+							<nav class="footer-nav">
+								<!-- Generate principal menu with knd Menu bundle -->
+								{{ knp_menu_render('footer') }}
+							</nav>
+						</ul>
+					</div>
+					<div class="footer-contact">
+						<h3>Contact</h3>
+						<ul>
+							<li>
+								<svg fill="none" height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg">
+									<path d="M17.5 2.5H7.5C6.39543 2.5 5.5 3.39543 5.5 4.5V20.5C5.5 21.6046 6.39543 22.5 7.5 22.5H17.5C18.6046 22.5 19.5 21.6046 19.5 20.5V4.5C19.5 3.39543 18.6046 2.5 17.5 2.5Z" stroke="#FF6347" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+									<path d="M12.5 18.5H12.51" stroke="#FF6347" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+								</svg>
+								{{ onadetbeauteDatas.phone }}</p>
+							</li>
+							<li>
+								<svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+									<path d="M22 2L11 13" stroke="#FF6347" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+									<path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="#FF6347" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+								</svg>
+								<a href="mailto:{{ onadetbeauteDatas.email }}" title="Contacter onadetbeute" class="orange orange--hover">{{ onadetbeauteDatas.email }}</a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer-infos">
+						<h3>Coordonnées</h3>
+						<ul>
+							<li>O'Nad&Beauté</li>
+							<li>{{ onadetbeauteDatas.address|nl2br }}</li>
+							<li>SIRET : {{ onadetbeauteDatas.siret }}</li>
+						</ul>
+					</div>
+					<div class="footer-payment">
+						<h3>Moyens de paiements</h3>
+						<ul>
+							<li>
+								<svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+									<path d="M22 2L11 13" stroke="#FF6347" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+									<path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="#FF6347" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+								</svg>
+								Carte de crédits
+							</li>
+							<li>
+								<svg height="8.4666mm" space="preserve" version="1.1" viewBox="0 0 846.66 846.66" width="8.4666mm" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+									<defs> </defs>
+									<g id="Layer_x0020_1">
+										<path class="fil0" d="M64.19 224.71l23.41 0 0.07 -94.62c0,-12.88 11.68,-22.72 24.46,-20.38l627.66 115 42.68 0c31.17,0 56.69,25.53 56.69,56.69 0,133.07 0,266.13 0,399.2 0,31.18 -25.53,56.7 -56.69,56.7l-718.28 0c-31.18,0 -56.69,-25.54 -56.69,-56.7 0,-133.07 0,-266.13 0,-399.2 0,-31.18 25.54,-56.69 56.69,-56.69zm64.99 0l380.66 0 -380.66 -69.75 0 69.75zm598.17 216.8c-27.34,0 -27.34,-41.58 0,-41.58l70.24 0 0 -118.53c0,-8.34 -6.79,-15.11 -15.12,-15.11l-718.28 0c-8.3,0 -15.11,6.78 -15.11,15.11l0 118.53 70.23 0c27.35,0 27.35,41.58 0,41.58l-70.23 0 0 78.99 70.23 0c27.35,0 27.35,41.58 0,41.58l-70.23 0 0 118.52c0,8.31 6.78,15.12 15.11,15.12l718.28 0c8.34,0 15.12,-6.78 15.12,-15.12l0 -118.52 -70.24 0c-27.34,0 -27.34,-41.58 0,-41.58l70.24 0 0 -78.99 -70.24 0zm-324.81 -94.19c0,-27.34 41.58,-27.34 41.58,0l0 17.34 21.47 0c27.35,0 27.35,41.58 0,41.58l-21.47 0 0 53.97 21.47 0c40.01,0 68.19,29.62 68.19,68.57 0,38.95 -28.18,68.56 -68.19,68.56l-21.47 0 0 17.35c0,27.34 -41.58,27.34 -41.58,0l0 -17.35 -21.47 0c-27.35,0 -27.35,-41.57 0,-41.57l21.47 0 0 -53.98 -21.47 0c-40.01,0 -68.19,-29.62 -68.19,-68.56 0,-38.96 28.18,-68.57 68.19,-68.57l21.47 0 0 -17.34zm41.58 154.47l0 53.98 21.47 0c16.57,0 26.62,-11.07 26.62,-26.99 0,-15.92 -10.05,-26.99 -26.62,-26.99l-21.47 0zm-41.58 -41.58l0 -53.97 -21.47 0c-16.57,0 -26.62,11.07 -26.62,26.99 0,15.91 10.05,26.98 26.62,26.98l21.47 0z" fill="#FF6347"></path>
+									</g>
+								</svg>
+								Espèces
+							</li>
+							<li>
+								<svg height="8.4666mm" viewBox="0 0 32 32" width="8.4666mm" xmlns="http://www.w3.org/2000/svg">
+									<g data-name="36. Bank Check" id="_36._Bank_Check"><path d="M31,8H28V3a3,3,0,0,0-6,0V8H3a3,3,0,0,0-3,3V29a3,3,0,0,0,3,3H23a1,1,0,0,0,1-1V28h7a1,1,0,0,0,1-1V9A1,1,0,0,0,31,8ZM24,6h2v8.59l-1,1-1-1Zm1-4a1,1,0,0,1,1,1V4H24V3A1,1,0,0,1,25,2ZM22,30H3a1,1,0,0,1,0-2H22Zm8-4H3a3,3,0,0,0-1,.18V11a1,1,0,0,1,1-1H22v5a1,1,0,0,0,.29.71l2,2a1,1,0,0,0,1.42,0l2-2A1,1,0,0,0,28,15V10h2Z" fill="#FF6347"></path><path d="M5,14h8a1,1,0,0,0,0-2H5a1,1,0,0,0,0,2Z" fill="#FF6347"></path>
+										<path d="M18,17a1,1,0,0,0-1-1H5a1,1,0,0,0,0,2H17A1,1,0,0,0,18,17Z" fill="#FF6347"></path>
+									</g>
+								</svg>
+								Chèques
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="footer__parts footer-down">
+					<div class="footer-reserved">© 2021 onadetbeaute, Tous droits réservés.</div>
+					<div class="legals-mentions">
+						<a href="#" title="Lien vers les mentions légales"  class="orange orange--hover">Mentions légales</a>
+					</div>
+					<div class="footer-bydev">
+						Par <a href="mailto:mat.bonhommeau85@gmail.com" title="Contacter le développeur" class="orange orange--hover">Mathieu Bonhommeau</a>
+					</div>
+					<div class="footer-socials">
+						<a href="https://www.instagram.com/onadetbeaute"><i class="fab fa-instagram icon"></i></a>
+						<a href="https://www.facebook.com/ONadetBeaute/photos/?ref=page_internal"><i class="fab fa-facebook-f icon"></i></a>
+					</div>
+				</div>
+			</footer>
+		</div>
+
 		{% block scripts %}{% endblock %}
 		<script src="./js/contact/contact.js"></script>
+		<script src="./js/pages/base.js"></script>
 	</body>
 </html>

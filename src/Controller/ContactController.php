@@ -45,6 +45,7 @@ class ContactController extends AbstractController
                 return new JsonResponse('Votre message à été envoyé !', 200);
 
             } catch (\Exception $e) {
+                dump($e);
                 return new JsonResponse('Votre messagen\a pas pu être envoyé !', 500);
             }
     

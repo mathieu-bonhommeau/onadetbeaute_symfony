@@ -1,0 +1,56 @@
+.footer-container {
+    background-color: $bg-footer;
+}
+
+.footer {
+
+    &__parts {
+        display: flex;
+        justify-content: space-around;
+        border-bottom: 1px solid $footer-border-color;
+        color: $footer-color;
+        padding: 2em;
+
+        * {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        & > div {
+            width: 25%;
+            padding: 0 3%;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            padding: 0.5em 0;
+            gap: 1em;
+        }
+
+        &.footer-down {
+            align-items: center;
+
+            * {
+                width: auto;
+            }
+        }
+    }
+
+    h3 {
+        color: $white;
+    }
+}
+
+.footer-socials {
+
+    a {
+        margin-right: 5px;
+    }
+
+    .icon:hover {
+        color: $white;
+        border: 1px solid $white;
+    }
+}
+
