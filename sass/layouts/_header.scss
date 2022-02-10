@@ -2,7 +2,10 @@
     width: 100vw;
     background-color: $headerBGColor;
     position: relative;
-    height: 100vh;
+    
+    &--home {
+        height: 100vh;
+    }
 }
 
 .header {

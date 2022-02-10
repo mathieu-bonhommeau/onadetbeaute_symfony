@@ -379,6 +379,10 @@ template {
   display: none;
 }
 
+.show {
+  display: auto;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -416,12 +420,56 @@ body {
   background-attachment: fixed;
   overflow-x: hidden;
   width: 100vw;
+  scroll-behavior: smooth;
+}
+
+.login-container {
+  height: 60vh;
+  max-width: 992px;
+}
+
+.form-group {
+  padding-left: 5rem;
+  padding-right: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.form-group .btn {
+  width: 170px;
+  outline: none;
+}
+.form-group .btn:focus {
+  border: 2px #a35e9c solid;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.form-item label {
+  color: tomato;
+  font-size: 1.3em;
+}
+.form-item input {
+  padding: 0.5em 1em;
+  font-size: 1.3em;
+  background-color: #ffffff !important;
+  outline: none;
+  border-radius: 3em;
+  border: 1px solid tomato;
+}
+.form-item input:focus {
+  border: 2px #a35e9c solid;
 }
 
 .header-container {
   width: 100vw;
   background-color: #fbf6f5;
   position: relative;
+}
+.header-container--home {
   height: 100vh;
 }
 
@@ -731,7 +779,7 @@ body {
   font-weight: normal;
   color: tomato;
   margin-top: 0;
-  padding: 1rem 5rem 0.5rem 5rem;
+  padding: 2rem 5rem 0.5rem 5rem;
   border-bottom: solid 1px #ffffff;
 }
 .contact__form {
@@ -939,6 +987,34 @@ body {
   border: 2px solid tomato;
   font-weight: normal;
   padding: 0.5em 1em;
+}
+
+.go-up {
+  position: fixed;
+  z-index: 1000;
+  width: 70px;
+  height: 70px;
+  background-color: transparent;
+  bottom: 30px;
+  right: 30px;
+}
+.go-up::after {
+  content: "\f0aa";
+  color: tomato;
+  font-family: "FontAwesome";
+  position: absolute;
+  top: 7px;
+  left: 10px;
+  font-size: 50px;
+}
+.go-up--hidden {
+  opacity: 0;
+  transition: display 0.4s ease;
+}
+.go-up--show {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  cursor: pointer;
 }
 
 .card {

@@ -49,7 +49,7 @@ class HomeController extends AbstractController
         if ($request->get('code')) {
             $this->facebookApi->getAccessToken($request->get('code'));
         }
-
+        
         // Use the cache for retrieve facebook posts
         $cache = new FilesystemAdapter();
         $facebookPosts = $cache->get('posts_facebook', function (ItemInterface $item) {
