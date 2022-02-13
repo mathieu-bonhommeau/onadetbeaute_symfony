@@ -693,6 +693,18 @@ body {
   height: auto;
 }
 
+.facebook-reconnect {
+  color: red;
+  border: red solid 1px;
+  padding: 0.5em 1em;
+  border-radius: 2em;
+  margin-top: 1em;
+}
+.facebook-reconnect:hover {
+  color: white;
+  background-color: red;
+}
+
 .my-activity, .who-i-am {
   display: flex;
   justify-content: space-between;

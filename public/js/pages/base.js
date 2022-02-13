@@ -16,7 +16,10 @@ btn.addEventListener('click', event => {
     });
 })
 
-if(document.location.pathname === '/') {
+// Code for manage height and balls of header-container in term of the page which is display
+const param = (new URLSearchParams(window.location.search)).get('routeName')
+
+if(document.location.pathname === '/' || param === 'home') {
     document.querySelector('.ball--6').classList.add('show')
     document.querySelector('.ball--5').classList.add('show')
     document.querySelector('.header-container').classList.add('header-container--home')

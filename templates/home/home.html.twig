@@ -74,11 +74,15 @@
     </div>
 
     <div class="social-posts-container">
-        <a href='https://www.facebook.com/v12.0/dialog/oauth?client_id={{ onadetbeaute.facebookClientId }}&redirect_uri={{ onadetbeaute.facebookRedirectUri }}&state=987654321'>Connecter le site à facebook</a>
+
         <section class="social-posts">
             <div class="social-posts__text container">
                 <h2 class="social-posts__title card__title">Mes derniers posts</h2>
+                {% if is_granted('ROLE_USER') %}
+                <a href='https://www.facebook.com/v12.0/dialog/oauth?client_id={{ onadetbeaute.facebookClientId }}&redirect_uri={{ onadetbeaute.facebookRedirectUri }}&state=987654321' class="facebook-reconnect">Connecter le site à facebook</a>
+                {% endif %}
             </div>
+            {% if facebookPosts %}
             <div class="social-posts__slide">
                 <div class="bloc-iframes">
                     {% for post in facebookPosts|slice(0, 10) %}
@@ -93,6 +97,13 @@
                 <a href="https://www.instagram.com/onadetbeaute"><i class="fab fa-instagram icon"></i></a>
                 <a href="https://www.facebook.com/ONadetBeaute/photos/?ref=page_internal"><i class="fab fa-facebook-f icon"></i></a>
             </div>
+            {% else %}
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
         </section>
     </div>
 
