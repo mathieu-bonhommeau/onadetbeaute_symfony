@@ -2,17 +2,29 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Prestation;
+use App\Entity\PrestationType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PrestationController extends AbstractController
 {
-    #[Route('/type-prestation', name: 'type-prestation')]
-    public function getPrestionTypes(): Response
+    private $manager;
+
+    public function __construct(EntityManagerInterface $manager) {
+        $this->manager = $manager;
+    }
+
+    #[Route('/prestation/{slug}', name: 'type-prestation')]
+    public function getPrestationTypes(PrestationType $prestationType): Response
     {
+        $prestations = $this->manager->getRepository(Prestation::class)->findBy(['prestationType' => $prestationType]);
+
         return $this->render('prestation/prestation.html.twig', [
-            'controller_name' => 'PrestationController',
+            'prestationType' => $prestationType,
+            'prestations' => $prestations 
         ]);
     }
 

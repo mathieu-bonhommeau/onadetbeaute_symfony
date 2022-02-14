@@ -31,6 +31,7 @@ class PrestationTypeCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('name', 'Nom')->setRequired(true),
+            TextField::new('slug', 'Nom unique/Slug')->setRequired(true),
             TextEditorField::new('description', 'Description')->setRequired(true),
             AssociationField::new('photoInPromote', 'Photo')
                 ->setRequired(true) 

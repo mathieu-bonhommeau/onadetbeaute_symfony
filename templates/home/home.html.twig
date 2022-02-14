@@ -14,15 +14,15 @@
         <div class="presentations-banner__slide">
             <div class="slide-presentation slide-1">
                 <h2 class="slide-presentation__title">Prothésiste Ongulaire <span class="orange">Nail Art</span></h1>
-                <a href="{{ path('type-prestation') }}" class="btn btn--orange">En savoir plus</a>
+                <a href="{{ path('type-prestation', {'slug' : 'ongles'}) }}" class="btn btn--orange">En savoir plus</a>
             </div>
             <div class="slide-presentation slide-2">
                 <h2 class="slide-presentation__title">Extensions de <span class="orange">Cils</span></h1>
-                <a href="{{ path('type-prestation') }}" class="btn btn--orange">En savoir plus</a>
+                <a href="{{ path('type-prestation', {'slug' : 'cils'}) }}" class="btn btn--orange">En savoir plus</a>
             </div>
             <div class="slide-presentation slide-3">
                 <h2 class="slide-presentation__title">Vente de <span class="orange">Bijoux</span> et <span class="orange">Maquillage</span></h1>
-                <a href="{{ path('type-prestation') }}" class="btn btn--orange">En savoir plus</a>
+                <a href="{{ path('type-prestation', {'slug' : 'coquetteries'}) }}" class="btn btn--orange">En savoir plus</a>
             </div>
         </div>
         <div class="presentations-banner__img">
@@ -43,7 +43,7 @@
                 <div class="card__description">
                     <p class="card__text">{{ prestationType.description|striptags }}</p>
                 </div>
-                <a href="{{ path('type-prestation') }}" class="card__link btn btn--outline-orange">Détails et Tarifs</a>
+                <a href="{{ path('type-prestation', {'slug': prestationType.slug}) }}" class="card__link btn btn--outline-orange">Détails et Tarifs</a>
             </div>
         {% endfor %}
     </section>

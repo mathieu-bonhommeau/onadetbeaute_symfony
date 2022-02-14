@@ -26,7 +26,7 @@
 
 		<!-- Stylesheets -->
 		{% block stylesheets %}{% endblock %}
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 		<meta name="theme-color" content="#fafafa">
 
@@ -52,10 +52,13 @@
 
 				<!-- Header -->
 				<header class="container">
-					<img src="./images/logo-new.png" alt="Logo O'Nad&Beauté" class="header__logo">
+					<img src="{{ asset('./images/logo-new.png') }}" alt="Logo O'Nad&Beauté" class="header__logo">
 				</header>
 				<!-- Principal navigation -->
 				<div class="nav-container">
+					<div class="logo-menu">
+						<img src="{{ asset('./images/logo-new.png') }}" alt="Logo O'Nad&Beauté">
+					</div>
 					<div class="container navbar">
 						<nav class="principal-nav">
 							<!-- Generate principal menu with knd Menu bundle -->
@@ -169,7 +172,7 @@
 		</div>
 
 		{% block scripts %}{% endblock %}
-		<script src="./js/contact/contact.js"></script>
-		<script src="./js/pages/base.js"></script>
+		<script src="{{ asset('./js/contact/contact.js') }}"></script>
+		<script src="{{ asset('./js/pages/base.js') }}"></script>
 	</body>
 </html>

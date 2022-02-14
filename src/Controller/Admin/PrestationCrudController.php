@@ -34,6 +34,9 @@ class PrestationCrudController extends AbstractCrudController
             TextField::new('name', 'Nom'),
             TextEditorField::new('description', 'Description'),
             MoneyField::new('price', 'Prix')->setCurrency('EUR'),
+            AssociationField::new('prestationType', 'Catégorie de la préstation')
+                ->setRequired(true)
+                ->setFormType(EntityType::class),
             AssociationField::new('photoInPromote', 'Photo')
                 ->setRequired(true)
                 ->setFormType(EntityType::class)

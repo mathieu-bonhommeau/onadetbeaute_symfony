@@ -380,7 +380,7 @@ template {
 }
 
 .show {
-  display: auto;
+  display: block;
 }
 
 .bold {
@@ -480,6 +480,8 @@ body {
   display: block;
   margin: 0 auto;
   padding: 80px 0;
+  position: relative;
+  z-index: 1000;
 }
 
 .nav-container {
@@ -488,16 +490,38 @@ body {
   box-shadow: 0px 2px 2px #919296;
   position: relative;
   z-index: 1;
+  width: 100vw;
+}
+.nav-container.fix-menu {
+  position: fixed;
+  top: 0;
+  background-color: white;
+  width: 100vw;
+  z-index: 1000;
+}
+.nav-container .logo-menu {
+  position: fixed;
+  left: 30px;
+  top: 24px;
+  width: 160px;
+  display: none;
+}
+.nav-container .logo-menu img {
+  object-fit: cover;
+  width: 100%;
+}
+.nav-container .logo-menu.show-logo {
+  display: block;
 }
 
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
 .principal-menu {
   display: flex;
+  gap: 1em;
 }
 .principal-menu__item {
   font-weight: 700;
@@ -508,6 +532,9 @@ body {
   position: relative;
   padding-bottom: 0.5em;
   cursor: pointer;
+}
+.principal-menu__item a {
+  font-weight: bold;
 }
 .principal-menu__item:hover {
   color: #302e44;
@@ -533,6 +560,8 @@ body {
   font-size: 1.08em;
   display: flex;
   align-items: center;
+  position: absolute;
+  right: 60px;
 }
 
 .footer-menu__item {
@@ -651,6 +680,9 @@ body {
   height: 500px;
 }
 
+.social-posts {
+  overflow: hidden;
+}
 .social-posts__text {
   padding-left: 2em;
   margin-bottom: 3em;

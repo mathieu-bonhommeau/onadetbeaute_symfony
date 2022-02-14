@@ -48,7 +48,10 @@ final class Builder implements ContainerAwareInterface
         $prestationTypes = $this->em->getRepository(PrestationType::class)->findAll();
 
         foreach ($prestationTypes as $prestationType) {
-            $menu->addChild($prestationType->getName(), ['route' => 'type-prestation'])
+            $menu->addChild($prestationType->getName(), [
+                'route' => 'type-prestation',
+                'routeParameters' => ['slug' => $prestationType->getSlug()]
+            ])
                 ->setAttribute('class', 'principal-menu__item');
         }
         
@@ -83,7 +86,10 @@ final class Builder implements ContainerAwareInterface
         $prestationTypes = $this->em->getRepository(PrestationType::class)->findAll();
 
         foreach ($prestationTypes as $prestationType) {
-            $menu->addChild($prestationType->getName(), ['route' => 'type-prestation'])
+            $menu->addChild($prestationType->getName(), [
+                'route' => 'type-prestation',
+                'routeParameters' => ['slug' => $prestationType->getSlug()]
+            ])
                 ->setAttribute('class', 'footer-menu__item orange orange--hover');
         }
         
