@@ -423,6 +423,76 @@ body {
   scroll-behavior: smooth;
 }
 
+.page-title {
+  font-family: "brushsci";
+  color: #601528;
+  font-size: 3em;
+  font-weight: normal;
+  color: tomato;
+  font-size: 5em;
+  background-color: #fbf6f5;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0.5em 0.3em;
+  border-radius: 10px;
+}
+
+.prestations {
+  align-items: flex-start;
+  margin-top: 0;
+}
+
+.prestation-type-description {
+  padding-bottom: 2em;
+}
+
+.list-prestations {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 2em;
+}
+.list-prestations .prestation-line {
+  padding-bottom: 0.8em;
+  padding-top: 0.8em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #fbf6f5;
+}
+.list-prestations .prestation-line:first-of-type {
+  border-top: 1px solid #fbf6f5;
+}
+.list-prestations__picture {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  width: 20%;
+  height: 100px;
+}
+.list-prestations__picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #919296;
+}
+.list-prestations__description {
+  width: 80%;
+  text-align: center;
+  font-weight: bold;
+}
+.list-prestations__price {
+  width: 20%;
+  text-align: right;
+  color: #ffffff;
+  font-weight: bold;
+  position: relative;
+}
+.list-prestations__price .price {
+  background-color: tomato;
+  padding: 1em 3em;
+  border-radius: 5px;
+}
+
 .login-container {
   height: 60vh;
   max-width: 992px;
@@ -462,6 +532,14 @@ body {
 }
 .form-item input:focus {
   border: 2px #a35e9c solid;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  gap: 50px;
 }
 
 .header-container {

@@ -3,5 +3,33 @@
 {% block title %}{{ prestationType.name }}{% endblock %}
 
 {% block body %}
-<p>{{ prestationType.description|striptags }}</p>
+<div class="container wrapper">
+    <aside class="sidebar-left">
+        <div class="aside__title">
+            <h1 class="page-title">{{ prestationType.name }}</h1>
+        </div>
+        <div class="aside__facebook"></div>
+    </aside>
+    <section class="prestations">
+        
+        <div class="prestation-type-description" role="presentation">{{ prestationType.description|raw }}</div>
+        
+        <div class="list-prestations">
+            <div>
+                {% for prestation in prestations %}
+                <div class="prestation-line">
+                    <div class="list-prestations__picture">
+                        <img src="{{ asset( photoDir ~ prestation.photoInPromote.path) }}" alt="">
+                    </div>
+                    <div class="list-prestations__description">{{ prestation.description|raw }}</div>
+                    <div class="list-prestations__price"><span class="price">{{ (prestation.price * 0.01)|number_format(2)}}€</span></div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+    </section>
+    
+</div>
+
 {% endblock %}

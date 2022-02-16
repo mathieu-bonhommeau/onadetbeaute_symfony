@@ -41,7 +41,7 @@
                     <img src="{{ photoDir ~ prestationType.photoInPromote.path }}" alt="Image présentant la prestation : {{ prestationType.name }}">
                 </div>
                 <div class="card__description">
-                    <p class="card__text">{{ prestationType.description|striptags }}</p>
+                    <p class="card__text">{{prestationType.description|raw}}</p>
                 </div>
                 <a href="{{ path('type-prestation', {'slug': prestationType.slug}) }}" class="card__link btn btn--outline-orange">Détails et Tarifs</a>
             </div>
@@ -57,7 +57,7 @@
                     <p>Je propose mes services</p>
                     <p class="orange bold">Autour de La Roche sur Yon</p>
                 </div>
-                <p class="my-activity__paragraph">{{ onadetbeaute.aboutMyActivity|striptags }}</p>
+                <p class="my-activity__paragraph">{{ onadetbeaute.aboutMyActivity|raw }}</p>
                 <a href="#contact" class="my-activity__link btn btn--orange">Contactez moi !!!</a>
             </div>
             <div class="my-activity__slider slider">
@@ -117,7 +117,7 @@
                         <span class="orange bold"><span class="orange bold">CAP d'esthétique</span>, je vous propose mes services ....
                     </p>
                 </div>
-                <p class="who-i-am__paragraph">{{ onadetbeaute.aboutMe|striptags }}</p>
+                <p class="who-i-am__paragraph">{{ onadetbeaute.aboutMe|raw }}</p>
             </div>
             <div class="who-i-am__slider slider">
                 {% for photo in isMyWorksPhotos %}
