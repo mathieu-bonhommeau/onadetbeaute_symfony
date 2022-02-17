@@ -12,7 +12,6 @@
 
 @import './pages/pages';
 @import './pages/login';
-@import './pages/prestations';
 
 @import './layouts/header';
 @import './layouts/menu';
@@ -22,9 +21,12 @@
 @import './layouts/slider-section';
 @import './layouts/contact';
 @import './layouts/footer';
+@import './layouts/prestations';
+@import './layouts/photos';
 
 @import './components/balls';
 @import './components/button';
 @import './components/card';
 @import './components/icons';
 @import './components/form-field';
+@import './components/fb-page-plugin';

@@ -68,6 +68,11 @@ class Photo
      */
     private $tags = [];
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date;
+
     public function __toString()
     {
         return $this->name;
@@ -203,6 +208,18 @@ class Photo
     public function setTags(?array $tags): self
     {
         $this->tags = $tags;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

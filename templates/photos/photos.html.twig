@@ -1,20 +1,28 @@
-{% extends 'base.html.twig' %}
+{% extends 'pages/page.html.twig' %}
 
-{% block title %}Hello PhotoController!{% endblock %}
+{% block title %}Photos{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block pageTitle %}Photos{% endblock %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/matanna/Documents/Dev/ProjetsSymfony/onadetbeaute-new/src/Controller/PhotoController.php'|file_link(0) }}">src/Controller/PhotoController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/matanna/Documents/Dev/ProjetsSymfony/onadetbeaute-new/templates/photo/index.html.twig'|file_link(0) }}">templates/photo/index.html.twig</a></code></li>
-    </ul>
-</div>
+{% block pageContent %}
+    <div class="drowpdown-list">Ici Listbox pour le tri ;)</div>
+    <div class="photos-content">  
+        {% for photo in photos %}
+            <div class="photo">
+                <h2 class="photo__title">{{ photo.name }}</h2>
+                <div class="photo__img">
+                    <img src="{{ asset( photoDir ~ photo.path ) }}" alt="{{ photo.name }}" />
+                </div>
+                <div class="photo__actions">
+                    <div class="photo__tags">
+                        {% for tag in photo.tags %}
+                            <span class="tag">{{ tag }}</span> 
+                        {% endfor %}
+                    </div>
+                    <div class="photo__likes"></div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
 {% endblock %}

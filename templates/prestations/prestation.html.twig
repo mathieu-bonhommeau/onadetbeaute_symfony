@@ -1,0 +1,25 @@
+{% extends 'pages/page.html.twig' %}
+
+{% block title %}{{ prestationType.name }}{% endblock %}
+
+{% block pageTitle %}{{ prestationType.name }}{% endblock %}
+
+{% block pageContent %}
+        
+    <div class="prestation-type-description" role="presentation">{{ prestationType.description|raw }}</div>
+    
+    <div class="list-prestations">
+        <div>
+            {% for prestation in prestations %}
+            <div class="prestation-line">
+                <div class="list-prestations__picture">
+                    <img src="{{ asset( photoDir ~ prestation.photoInPromote.path) }}" alt="">
+                </div>
+                <div class="list-prestations__description">{{ prestation.description|raw }}</div>
+                <div class="list-prestations__price"><span class="price">{{ (prestation.price * 0.01)|number_format(2)}}€</span></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+{% endblock %}

@@ -30,6 +30,7 @@ class EasyAdminPhotoSubscriber implements EventSubscriberInterface
     {
         $entity = $event->getEntityInstance();
         if ($entity instanceof Photo) {
+            $entity->setDate(new \DateTime('now'));
             $this->checkPrincipalPhoto($entity);
         }
     }

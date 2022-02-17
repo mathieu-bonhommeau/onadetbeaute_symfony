@@ -22,7 +22,7 @@ class PrestationController extends AbstractController
     {
         $prestations = $this->manager->getRepository(Prestation::class)->findBy(['prestationType' => $prestationType]);
 
-        return $this->render('prestation/prestation.html.twig', [
+        return $this->render('prestations/prestation.html.twig', [
             'prestationType' => $prestationType,
             'prestations' => $prestations 
         ]);
@@ -31,7 +31,7 @@ class PrestationController extends AbstractController
     #[Route('/tarifs', name: 'tarifs')]
     public function getTarifs(): Response
     {
-        return $this->render('prestation/tarifs.html.twig', [
+        return $this->render('prestations/prestation.html.twig', [
             
         ]);
     }

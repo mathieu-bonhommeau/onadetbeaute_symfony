@@ -35,6 +35,11 @@
 	</head>
 
 	<body>
+
+		<!-- Plugin fgacebook for display page in iframe -->
+		<div id="fb-root"></div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v13.0" nonce="T7AVbQTG"></script>
+		
 		<main>
 			<div class="go-up go-up--hidden"></div>
 			<div class="header-container">
@@ -51,14 +56,24 @@
 				<div class="ball ball--10 ball--big"></div>
 
 				<!-- Header -->
-				<header class="container">
-					<img src="{{ asset('./images/logo-new.png') }}" alt="Logo O'Nad&Beauté" class="header__logo">
+				<header class="header container">
+					<div  class="header__logo">
+						<img src="{{ asset('./images/logo-new.png') }}" alt="Logo O'Nad&Beauté">
+						<div class="phone-nav--mobile">
+							<svg fill="none" height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg">
+								<path d="M17.5 2.5H7.5C6.39543 2.5 5.5 3.39543 5.5 4.5V20.5C5.5 21.6046 6.39543 22.5 7.5 22.5H17.5C18.6046 22.5 19.5 21.6046 19.5 20.5V4.5C19.5 3.39543 18.6046 2.5 17.5 2.5Z" stroke="#FF6347" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+								<path d="M12.5 18.5H12.51" stroke="#FF6347" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+							</svg>
+							<a href="tel:+{{ onadetbeauteDatas.phone }}" title="Numéro de téléphone O'Nad&Beauté">{{ onadetbeauteDatas.phone }}</a>
+						</div>
+					</div>
 				</header>
 				<!-- Principal navigation -->
 				<div class="nav-container">
 					<div class="logo-menu">
 						<img src="{{ asset('./images/logo-new.png') }}" alt="Logo O'Nad&Beauté">
 					</div>
+
 					<div class="container navbar">
 						<nav class="principal-nav">
 							<!-- Generate principal menu with knd Menu bundle -->
@@ -69,9 +84,14 @@
 								<path d="M17.5 2.5H7.5C6.39543 2.5 5.5 3.39543 5.5 4.5V20.5C5.5 21.6046 6.39543 22.5 7.5 22.5H17.5C18.6046 22.5 19.5 21.6046 19.5 20.5V4.5C19.5 3.39543 18.6046 2.5 17.5 2.5Z" stroke="#FF6347" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 								<path d="M12.5 18.5H12.51" stroke="#FF6347" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 							</svg>
-							{{ onadetbeauteDatas.phone }}
+							<a href="tel:+{{ onadetbeauteDatas.phone }}" title="Numéro de téléphone O'Nad&Beauté">{{ onadetbeauteDatas.phone }}</a>
 						</div>
 					</div>
+
+					<div class="toggle-menu">
+						<span class="toggle-menu__icon"></span>
+					</div>
+
 				</div>
 				{% block header %}{% endblock %}
 			</div>
