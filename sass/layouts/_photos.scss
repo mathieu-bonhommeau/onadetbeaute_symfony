@@ -1,12 +1,11 @@
 .photos-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 33% 33% 33%;
 }
 
 .photo {
-    width: 28%;
-    margin-bottom: 4em;
+    margin-bottom: 2em;
 
     &__title {
         color: $tomato;

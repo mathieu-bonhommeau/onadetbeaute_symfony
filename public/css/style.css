@@ -416,7 +416,6 @@ section {
 }
 
 body {
-  background-image: url("../images/background_white.jpg");
   background-attachment: fixed;
   overflow-x: hidden;
   width: 100vw;
@@ -520,10 +519,6 @@ body {
   align-items: center;
   gap: 20px;
 }
-.header__logo img {
-  width: 100%;
-  object-fit: cover;
-}
 @media screen and (max-width: 992px) {
   .header__logo {
     padding-top: 40px;
@@ -542,10 +537,17 @@ body {
   }
 }
 
+.logo {
+  font-family: "brushsci";
+  font-size: 6em;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #601528;
+  text-shadow: 2px 2px 5px tomato;
+}
+
 .nav-container {
-  background-color: rgba(255, 255, 255, 0.8);
   padding: 0.3em;
-  box-shadow: 0px 2px 2px #919296;
   position: relative;
   z-index: 1;
   width: 100vw;
@@ -567,6 +569,7 @@ body {
   position: fixed;
   top: 0;
   background-color: white;
+  box-shadow: 0px 2px 2px #919296;
   width: 100vw;
   z-index: 1000;
 }
@@ -588,6 +591,7 @@ body {
 .navbar {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 @media screen and (max-width: 992px) {
   .navbar {
@@ -662,25 +666,14 @@ body {
   font-size: 1.08em;
   display: flex;
   align-items: center;
-  position: absolute;
   right: 60px;
+}
+.phone-nav svg {
+  padding-right: 0.5em;
 }
 @media screen and (max-width: 1200px) {
   .phone-nav {
     font-size: 1em;
-  }
-}
-.phone-nav--mobile {
-  font-weight: 700;
-  color: #601528;
-  font-size: 1.2em;
-  font-size: 1.08em;
-  display: flex;
-  align-items: center;
-}
-@media screen and (min-width: 991px) {
-  .phone-nav--mobile {
-    display: none;
   }
 }
 
@@ -1061,14 +1054,13 @@ body {
 }
 
 .photos-content {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 33% 33% 33%;
 }
 
 .photo {
-  width: 28%;
-  margin-bottom: 4em;
+  margin-bottom: 2em;
 }
 .photo__title {
   color: tomato;
@@ -1444,6 +1436,25 @@ body {
 
 .fb-page {
   width: 100%;
+}
+
+.drowpdown-list {
+  margin-bottom: 2em;
+}
+.drowpdown-list label {
+  font-weight: bold;
+  padding-right: 2em;
+}
+.drowpdown-list select {
+  padding: 0.5em 1em;
+  color: #ffffff;
+  background: tomato;
+  border: solid 1px tomato;
+  border-radius: 5px;
+}
+.drowpdown-list option:hover {
+  color: tomato;
+  background: #ffffff;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -24,11 +24,6 @@
         align-items: center;
         gap: 20px;
 
-        img {
-            width: 100%;
-            object-fit: cover;
-        }
-
         @media screen and (max-width: 992px) {
             padding-top: 40px;
             padding-bottom: 20px;
@@ -43,10 +38,17 @@
     }
 }
 
+.logo {
+    font-family: "brushsci";
+    font-size: $h1-size*2;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: $title-color;
+    text-shadow: 2px 2px 5px $tomato;
+}
+
 .nav-container {
-    background-color: $principalMenuBg;
     padding: 0.3em;
-    box-shadow: 0px 2px 2px #919296;
     position: relative;
     z-index: 1;
     width: 100vw;
@@ -63,6 +65,7 @@
         position: fixed;
         top: 0;
         background-color: rgba(255, 255, 255, 1);
+        box-shadow: 0px 2px 2px #919296;
         width: 100vw;
         z-index: 1000;
     }

@@ -1,6 +1,7 @@
 .navbar {
     display: flex;
     align-items: center;
+    justify-content: center;
 
     @media screen and (max-width: 992px) {
         display: none;
@@ -76,22 +77,13 @@
     font-size: $menu-text-size * 0.9;
     display: flex;
     align-items: center;
-    position: absolute;
     right: 60px;
-
+    
+    svg {
+        padding-right: 0.5em;
+    }
     @media screen and (max-width: 1200px) {
         font-size: 1em;
-    }
-
-    &--mobile {
-        @include menu-style;
-        font-size: $menu-text-size * 0.9;
-        display: flex;
-        align-items: center;
-
-        @media screen and (min-width: 991px) {
-            display: none;
-        }
     }
 }
 

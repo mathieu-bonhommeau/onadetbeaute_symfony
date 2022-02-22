@@ -5,7 +5,14 @@
 {% block pageTitle %}Photos{% endblock %}
 
 {% block pageContent %}
-    <div class="drowpdown-list">Ici Listbox pour le tri ;)</div>
+    <div class="drowpdown-list">
+        <select name="photo-sort" id="photoSort">
+            <option value="" selected>Toutes les photos</option>
+            {% for tag in tags %}
+            <option value="{{ tag }}">{{ tag }}</option>
+            {% endfor %}
+        </select>
+    </div>
     <div class="photos-content">  
         {% for photo in photos %}
             <div class="photo">
@@ -25,4 +32,8 @@
         {% endfor %}
     </div>
     
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ asset('./js/photos/filter.js') }}"></script>
 {% endblock %}
