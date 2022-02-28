@@ -1,10 +1,22 @@
 // Ajax request for filter photos by tags with selected element
 const listbox = document.getElementById('photoSort')
+const tags = document.querySelectorAll('.tag')
+
 let photosContainer = document.querySelector('.photos-content')
 
-listbox.addEventListener('change', event => {
-    const value = event.target.value
+listbox.addEventListener('change', e => {
+    const value = e.target.value
+    sortByTag(value)
+})
 
+tags.forEach(e => {
+    e.addEventListener('click', event => {
+        const value = event.target.innerHTML
+        sortByTag(value)
+    })
+})
+
+function sortByTag (value) {
     photosContainer.innerHTML = ''
 
     const fetchPhotos = async () => {
@@ -29,7 +41,7 @@ listbox.addEventListener('change', event => {
                                             </div>
                                             <div class="photo__actions">
                                                 <div class="photo__tags"></div>
-                                                <div class="photo__likes"></div>
+                                                <div class="photo__date">Créé le : ${new Date(e.date).toLocaleDateString()}</div>
                                             </div>
                                         `
                                         const tagsDOM = photoDOM.querySelector('.photo__tags')
@@ -46,6 +58,13 @@ listbox.addEventListener('change', event => {
                                     })
             
             photosDOM.forEach(e => photosContainer.append(e))
+            const tags = document.querySelectorAll('.tag')
+            tags.forEach(e => {
+                e.addEventListener('click', event => {
+                    const value = event.target.innerHTML
+                    sortByTag(value)
+                })
+            })
             
         }
         catch (err) {
@@ -53,4 +72,4 @@ listbox.addEventListener('change', event => {
         }
     }
     fetchPhotos()
-})
+}

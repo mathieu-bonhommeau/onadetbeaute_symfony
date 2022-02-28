@@ -31,8 +31,24 @@ class PrestationController extends AbstractController
     #[Route('/tarifs', name: 'tarifs')]
     public function getTarifs(): Response
     {
-        return $this->render('prestations/prestation.html.twig', [
-            
+        $prestationsType = $this->manager->getRepository(PrestationType::class)->findAll();
+        $prestationsSorted = [];
+
+        foreach ($prestationsType as $type) {
+            $prestations = $this->manager->getRepository(Prestation::class)->findBy(['prestationType' => $type]);
+            $prestationsSorted[$type->getName()] = usort($prestations, function ($a, $b) {
+                ($a->getPrice() - $b->getPrice());
+            });
+        }
+        dump($prestationsSorted);
+
+        /*$sort = usort($prestations, function ($a, $b) {
+            return $a->getPrestationType() < $b->getPrestationType() ? -1 : 1;
+        });*/
+
+        return $this->render('prestations/tarifs.html.twig', [
+            'prestations' => $prestationsSorted
         ]);
     }
+
 }

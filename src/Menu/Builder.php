@@ -7,6 +7,7 @@ use Knp\Menu\ItemInterface;
 use App\Entity\PrestationType;
 use Knp\Menu\FactoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 
@@ -20,11 +21,13 @@ final class Builder implements ContainerAwareInterface
 
     private $factory; 
     private $em;
+    private $requestStack;
 
-    public function __construct(FactoryInterface $factory, EntityManagerInterface $em)
+    public function __construct(FactoryInterface $factory, EntityManagerInterface $em, RequestStack $requestStack)
     {
         $this->factory = $factory;
         $this->em = $em;
+        $this->requestStack = $requestStack;
     }
 
     /**
@@ -35,6 +38,8 @@ final class Builder implements ContainerAwareInterface
      */
     public function mainMenu(array $options): ItemInterface
     {
+        $requestUri = $this->requestStack->getCurrentRequest()->getRequestUri();
+
         $menu = $this->factory->createItem('root', [
             'childrenAttributes' => [
                 'class' => 'menu principal-menu'
@@ -59,7 +64,7 @@ final class Builder implements ContainerAwareInterface
             ->setAttribute('class', 'principal-menu__item');
         $menu->addChild('Tarifs', ['route' => 'tarifs'])
             ->setAttribute('class', 'principal-menu__item');
-        $menu->addChild('Contact', ['route' => 'home'])
+        $menu->addChild('Contact', ['uri' => $requestUri . '#contact'])
             ->setAttribute('class', 'principal-menu__item');
 
         return $menu;

@@ -36,6 +36,11 @@
         overflow: hidden;
         min-height: 20px;
     }
+
+    &__date {
+        font-size: 0.75em;
+        margin-top: 0.75em;
+    }
 }
 
 .tag {

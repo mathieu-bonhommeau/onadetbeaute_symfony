@@ -6,7 +6,7 @@
 
 {% block pageContent %}
     <div class="drowpdown-list">
-        <select name="photo-sort" id="photoSort">
+        <select name="photo-sort" id="photoSort" class="sortTag">
             <option value="" selected>Toutes les photos</option>
             {% for tag in tags %}
             <option value="{{ tag }}">{{ tag }}</option>
@@ -23,10 +23,10 @@
                 <div class="photo__actions">
                     <div class="photo__tags">
                         {% for tag in photo.tags %}
-                            <span class="tag">{{ tag }}</span> 
+                            <span class="tag sortTag">{{ tag }}</span> 
                         {% endfor %}
                     </div>
-                    <div class="photo__likes"></div>
+                    <div class="photo__date">Créé le : {{ photo.date|date("m/d/Y") }}</div>
                 </div>
             </div>
         {% endfor %}
