@@ -6,6 +6,7 @@
     box-sizing: border-box;
     width: 100%;
     margin-top: 2em;
+    font-size: 1.3em;
 
     .prestation-line {
         padding-bottom: 0.8em;
@@ -36,13 +37,11 @@
     &__description {
         width: 80%;
         text-align: center;
-        font-weight: bold;
     }
     &__price {
         width: 20%;
         text-align: right;
         color: $white;
-        font-weight: bold;
         position: relative;
         
         .price {

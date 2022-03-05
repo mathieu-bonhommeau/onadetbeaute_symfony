@@ -1,0 +1,27 @@
+.tarifs {
+    padding: 0 150px;
+}
+
+.tarif-category {
+
+    &:not(:first-of-type) {
+        margin-top: 1em;
+    }
+}
+
+.tarif-prestation {
+    display: flex;
+    font-size: 1.3em;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $footer-border-color;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+}
+
+.tarif-price {
+    color: $white;
+    background-color: $tomato;
+    padding: 0.3em 0.7em;
+    border-radius: 5px;
+}

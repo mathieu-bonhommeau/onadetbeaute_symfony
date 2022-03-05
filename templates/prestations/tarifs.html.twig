@@ -6,18 +6,22 @@
 
 {% block pageContent %}
 
-    <div class="list-prestations">
-        <div>
-            {% for prestation in prestations %}
-            <div class="prestation-line">
-                <div class="list-prestations__picture">
-                    <img src="{{ asset( photoDir ~ prestation.photoInPromote.path) }}" alt="">
-                </div>
-                <div class="list-prestations__description">{{ prestation.description|raw }}</div>
-                <div class="list-prestations__price"><span class="price">{{ (prestation.price * 0.01)|number_format(2)}}€</span></div>
+    <div class="tarifs">
+       
+        {% for key, prestationArray in prestations %}
+        <div class="tarif-category card__title">{{ key }}</div>
+
+        <div class="tarif-prestations">
+            {% for prestation in prestationArray %}
+            <div class="tarif-prestation">
+                <div class="tarif-description">{{ prestation.description|raw }}</div>
+                <div class="tarif-price"><span class="price">{{ (prestation.price * 0.01)|number_format(2)}}€</span></div>
             </div>
             {% endfor %}
         </div>
+
+        {% endfor %}
+        
     </div>
     
 {% endblock %}

@@ -19,22 +19,32 @@ class PrestationRepository extends ServiceEntityRepository
         parent::__construct($registry, Prestation::class);
     }
 
-    // /**
-    //  * @return Prestation[] Returns an array of Prestation objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return Prestation[] Returns an array of Prestation objects
+     */
+    public function findOrderByType()
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+        $results = $this->createQueryBuilder('p')
+            ->select('p', 'pt')
+            ->leftJoin('p.prestationType', 'pt')
+            ->orderBy('pt.id', 'ASC')
+            ->addOrderBy('p.price', 'DESC')
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
+        
+        $sort = [];
+
+        foreach ($results as $result) {
+            if (!isset($sort[$result->getPrestationType()->getName()])) {
+                $sort[$result->getPrestationType()->getName()] = [];
+                $sort[$result->getPrestationType()->getName()][] = $result;
+            } else {
+                $sort[$result->getPrestationType()->getName()][] = $result;
+            }
+        }
+
+        return $sort;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Prestation
