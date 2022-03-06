@@ -1,0 +1,162 @@
+.ball {
+    position: absolute;
+    z-index: 0;
+
+    &--small {
+        width: 2em;
+        height: 2em;
+        border-radius: 2em;
+    }
+
+    &--big {
+        width: 3em;
+        height: 3em;
+        border-radius: 2em;
+    }
+
+    &--1 {
+        background-color: #a35e9c;
+        opacity: 60%;
+        top: 40%;
+        left: 7%;
+        animation: small-ball-1 linear 15s infinite;
+    }
+
+    &--2 {
+        background-color: #f3e7f0;
+        top: 66%;
+        left: 12%;
+        transform: scale(1);
+        animation: big-ball-2 linear 10s infinite;
+    }
+
+    &--3 {
+        background-color: #a35e9c;
+        opacity: 60%;
+        top: 70%;
+        left: 30%;
+        animation: small-ball-3 linear 15s infinite;
+    }
+
+    &--4 {
+        background-color: #e0e2f6;
+        top: 13%;
+        left: 28%;
+        transform: scale(1.5);
+        animation: big-ball-4 linear 15s infinite;
+    }
+
+    &--5 {
+        background-color: #a35e9c;
+        opacity: 60%;
+        top: 30%;
+        right: 45%;
+        animation: small-ball-1 linear 15s infinite;
+    }
+
+    &--6 {
+        background-color: #e0e2f6;
+        top: 37%;
+        left: 40%;
+        transform: scale(2);
+        animation: big-ball-6 linear 13s infinite;
+    }
+
+    &--7 {
+        background-color: #f3e7f0;
+        top: 20%;
+        right: 30%;
+        transform: scale(1);
+        animation: big-ball-2 linear 10s infinite;
+    }
+
+    &--8 {
+        background-color: #f3e7f0;
+        right: 40%;
+        top: 55%;
+        transform: scale(2);
+        animation: big-ball-6 linear 13s infinite;
+    }
+
+    &--9 {
+        background-color: #a35e9c;
+        opacity: 60%;
+        right: 7%;
+        bottom: 30%;
+        animation: small-ball-3 linear 15s infinite;
+    }
+
+    &--10 {
+        background-color: #e0e2f6;
+        top: 30%;
+        right: 10%;
+        transform: scale(1.5);
+        animation: big-ball-4 linear 15s infinite;
+    }
+}
+
+@keyframes big-ball-2 {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(2);
+    }
+}
+
+@keyframes big-ball-4 {
+    0%, 100% {
+        transform: scale(1.5);
+    }
+
+    25% {
+        transform: scale(2);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    75% {
+        transform: scale(1);
+    }
+}
+
+@keyframes big-ball-6 {
+    0%, 100% {
+        transform: scale(2);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+}
+
+@keyframes small-ball-1 {
+    0% {
+        transform: translateY(200%);
+    }
+
+    50% {
+        transform: translateY(-250%);
+    }
+
+    100% {
+        transform: translateY(200%);
+    }
+}
+
+@keyframes small-ball-3 {
+    0% {
+        transform: translateY(-200%);
+    }
+
+    50% {
+        transform: translateY(250%);
+    }
+
+    100% {
+        transform: translateY(-200%);
+    }
+}

@@ -1,0 +1,25 @@
+.prestation-types {
+    @include center-box;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 1200px) {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .card {
+        width: 26%;
+
+        @media screen and (max-width: 1200px) {
+            width: 40%;
+        }
+        @media screen and (max-width: 992px) {
+            width: 60%;
+        }
+    }
+}
+
+.card-prestation-type {
+    height: 500px;
+}

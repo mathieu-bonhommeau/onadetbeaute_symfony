@@ -2,11 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\PrestationTypeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PrestationTypeRepository;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=PrestationTypeRepository::class)
+ * @UniqueEntity("slug")
  */
 class PrestationType
 {
@@ -32,6 +36,21 @@ class PrestationType
      * @ORM\JoinColumn(nullable=false)
      */
     private $photoInPromote;
+
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     */
+    private $slug;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Prestation::class, mappedBy="prestationType", orphanRemoval=true)
+     */
+    private $prestations;
+
+    public function __construct()
+    {
+        $this->prestations = new ArrayCollection();
+    }
 
     public function __toString()
     {
@@ -77,6 +96,48 @@ class PrestationType
     public function setPhotoInPromote(Photo $photoInPromote): self
     {
         $this->photoInPromote = $photoInPromote;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Prestation[]
+     */
+    public function getPrestations(): Collection
+    {
+        return $this->prestations;
+    }
+
+    public function addPrestation(Prestation $prestation): self
+    {
+        if (!$this->prestations->contains($prestation)) {
+            $this->prestations[] = $prestation;
+            $prestation->setPrestationType($this);
+        }
+
+        return $this;
+    }
+
+    public function removePrestation(Prestation $prestation): self
+    {
+        if ($this->prestations->removeElement($prestation)) {
+            // set the owning side to null (unless already changed)
+            if ($prestation->getPrestationType() === $this) {
+                $prestation->setPrestationType(null);
+            }
+        }
 
         return $this;
     }

@@ -3,8 +3,32 @@
 @import './base/typography';
 
 @import './utils/variables';
+@import './utils/mixins';
+@import './utils/utils';
+
+@import './base/colors';
 
 @import './base/base';
 
+@import './pages/pages';
+@import './pages/login';
+@import './pages/tarifs';
+
 @import './layouts/header';
 @import './layouts/menu';
+@import './layouts/slide-presentation';
+@import './layouts/type-prestations';
+@import './layouts/social-posts';
+@import './layouts/slider-section';
+@import './layouts/contact';
+@import './layouts/footer';
+@import './layouts/prestations';
+@import './layouts/photos';
+
+@import './components/balls';
+@import './components/button';
+@import './components/card';
+@import './components/icons';
+@import './components/form-field';
+@import './components/fb-page-plugin';
+@import './components/filter';

@@ -70,7 +70,7 @@ class PhotoCrudController extends AbstractCrudController
             IdField::new('name')->setRequired(true),
             BooleanField::new('principalPhoto', 'Photo principal')
                 ->addCssClass('principal-photo'),
-            BooleanField::new('frontPhoto', 'Slider Page d\'accueil')
+            BooleanField::new('frontPhoto', 'Slider Déplacement à domicile')
                 ->addCssClass('front-photo'),
             BooleanField::new('isMyWorksPhoto', 'Slider A propos de moi')
                 ->addCssClass('ismyworks-photo'),

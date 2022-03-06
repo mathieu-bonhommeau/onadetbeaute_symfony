@@ -1,4 +1,30 @@
+// Generic element
+html {
+    font-family: 'Open Sans';
+    font-size: $baseFontSize;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .container {
     max-width: $maxWidth;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+section {
+    margin-top: $section-margin;
+}
+
+body {
+    //background-image: url('../images/background_white.jpg');
+    background-attachment: fixed;
+    overflow-x: hidden;
+    width: 100vw;
+    scroll-behavior: smooth;
+}
+

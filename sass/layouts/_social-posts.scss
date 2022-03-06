@@ -1,0 +1,67 @@
+.social-posts {
+
+    overflow: hidden;
+
+    &__text {
+        padding-left: 2em;
+        margin-bottom: 3em;
+    }
+
+    .slick-list {
+        overflow: visible;
+    }
+
+    .slick-prev {
+        left: 40px;
+        z-index: 100;
+
+        &:before {
+            color: $tomato;
+            font-size: 40px;
+        }
+    }
+    
+    .slick-next {
+        right: 40px;
+        z-index: 100;
+        
+        &:before {
+            color: $tomato;
+            font-size: 40px;
+        }
+    }
+
+    &__links {
+        margin-top: 3em;
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+    }
+}
+
+.posts-iframe {
+    margin-left: 25px;
+    margin-right: 25px;
+
+    iframe {
+        height: 500px;
+        width: 100%;
+    }
+
+    &.slick-slide {
+        height: auto;
+    }
+}
+
+.facebook-reconnect {
+    color: red;
+    border: red solid 1px;
+    padding: 0.5em 1em;
+    border-radius: 2em;
+    margin-top: 1em;
+
+    &:hover {
+        color: white;
+        background-color: red;
+    }
+}

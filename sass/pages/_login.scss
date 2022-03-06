@@ -1,0 +1,45 @@
+.login-container {
+    height: 60vh;
+    max-width: 992px;
+}
+
+.form-group {
+    padding-left: 5rem;
+    padding-right: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    .btn {
+        width: 170px;
+        outline: none;
+
+        &:focus {
+            border: 2px $pink solid;
+        }
+    }
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    label {
+        color: $tomato;
+        font-size: $catchphrase-size;
+    }
+
+    input {
+        padding: 0.5em 1em;
+        font-size: $catchphrase-size;
+        background-color: $white !important;
+        outline: none;
+        border-radius: 3em;
+        border: 1px solid $tomato;
+
+        &:focus {
+            border: 2px $pink solid;
+        }
+    }
+}

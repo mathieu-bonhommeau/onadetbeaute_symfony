@@ -1,0 +1,142 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}O'Nad&Beauté{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+{% endblock %}
+
+{% block header %}
+    <!-- Banner of presentation -->
+    <h1 class="hide">Prothésiste ongulaire en Vendée</h1>
+    <section class="container presentations-banner" role="banner">
+        <div class="presentations-banner__slide">
+            <div class="slide-presentation slide-1">
+                <h2 class="slide-presentation__title">Prothésiste Ongulaire <span class="orange">Nail Art</span></h1>
+                <a href="{{ path('type-prestation', {'slug' : 'ongles'}) }}" class="btn btn--orange">En savoir plus</a>
+            </div>
+            <div class="slide-presentation slide-2">
+                <h2 class="slide-presentation__title">Extensions de <span class="orange">Cils</span></h1>
+                <a href="{{ path('type-prestation', {'slug' : 'cils'}) }}" class="btn btn--orange">En savoir plus</a>
+            </div>
+            <div class="slide-presentation slide-3">
+                <h2 class="slide-presentation__title">Vente de <span class="orange">Bijoux</span> et <span class="orange">Maquillage</span></h1>
+                <a href="{{ path('type-prestation', {'slug' : 'coquetteries'}) }}" class="btn btn--orange">En savoir plus</a>
+            </div>
+        </div>
+        <div class="presentations-banner__img">
+            <img src="{{ photoDir ~ principalPhoto.path }}" alt="">
+        </div>
+    </section>
+{% endblock %}
+
+{% block body %}
+    <!-- Section prestation types -->
+    <section class="container prestation-types">
+        {% for prestationType in prestationTypes %}
+            <div class="card card-prestation-type">
+                <div class="card__title">{{ prestationType.name }}</div>
+                <div class="card__img">
+                    <img src="{{ photoDir ~ prestationType.photoInPromote.path }}" alt="Image présentant la prestation : {{ prestationType.name }}">
+                </div>
+                <div class="card__description">
+                    <p class="card__text">{{prestationType.description|raw}}</p>
+                </div>
+                <a href="{{ path('type-prestation', {'slug': prestationType.slug}) }}" class="card__link btn btn--outline-orange">Détails et Tarifs</a>
+            </div>
+        {% endfor %}
+    </section>
+
+    <!-- Section my work -->
+    <div class="slider-section-container">
+        <section class="container my-activity">
+            <div class="my-activity__text">
+                <h2 class="my-activity__title card__title">Déplacement à domicile</h2>
+                <div class="my-activity__catchphrase">
+                    <p>Je propose mes services</p>
+                    <p class="orange bold">Autour de La Roche sur Yon</p>
+                </div>
+                <p class="my-activity__paragraph">{{ onadetbeaute.aboutMyActivity|raw }}</p>
+                <a href="#contact" class="my-activity__link btn btn--orange">Contactez moi !!!</a>
+            </div>
+            <div class="my-activity__slider slider">
+                {% for photo in frontSliderPhotos %}
+                    <div class="my-activity__photo">
+                        <img src="{{ photoDir ~ photo.path }}" alt="{{ photo.name }}">
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+    <div class="container link-photos">
+        <a href="{{ path('photos') }}" class="card__link btn btn--outline-orange">Toutes les photos</a>
+    </div>
+
+    <div class="social-posts-container">
+
+        <section class="social-posts">
+            <div class="social-posts__text container">
+                <h2 class="social-posts__title card__title">Mes derniers posts</h2>
+                {% if is_granted('ROLE_USER') %}
+                <a href='https://www.facebook.com/v12.0/dialog/oauth?client_id={{ onadetbeaute.facebookClientId }}&redirect_uri={{ onadetbeaute.facebookRedirectUri }}&state=987654321' class="facebook-reconnect">Connecter le site à facebook</a>
+                {% endif %}
+            </div>
+            {% if facebookPosts %}
+            <div class="social-posts__slide">
+                <div class="bloc-iframes">
+                    {% for post in facebookPosts|slice(0, 10) %}
+                        {% set id = (post.facebookId|split('_'))[1] %}
+                        <div class="posts-iframe card">
+                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FONadetBeaute%2Fposts%2F{{ id }}&show_text=true" scrolling="yes" frameborder="0" allowfullscreen="true"></iframe>
+                        </div>
+                    {% endfor %}
+                 </div>
+            </div>
+            <div class="social-posts__links">
+                <a href="https://www.instagram.com/onadetbeaute"><i class="fab fa-instagram icon"></i></a>
+                <a href="https://www.facebook.com/ONadetBeaute/photos/?ref=page_internal"><i class="fab fa-facebook-f icon"></i></a>
+            </div>
+            {% else %}
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </section>
+    </div>
+
+    <div class="slider-section-container">
+        <section class="container who-i-am">
+            <div class="who-i-am__text">
+                <h2 class="who-i-am__title card__title">Qui suis-je ?</h2>
+                <div class="who-i-am__catchphrase">
+                    <p>
+                        Diplômée d'un <span class="orange bold">CAP d'esthétique</span> et d'une formation<br>
+                        <span class="orange bold"><span class="orange bold">CAP d'esthétique</span>, je vous propose mes services ....
+                    </p>
+                </div>
+                <p class="who-i-am__paragraph">{{ onadetbeaute.aboutMe|raw }}</p>
+            </div>
+            <div class="who-i-am__slider slider">
+                {% for photo in isMyWorksPhotos %}
+                    <div class="who-i-am__photo">
+                        <img src="{{ photoDir ~ photo.path }}" alt="{{ photo.name }}">
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+    
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+
+    <script type="text/javascript" src="/js/slick/slick.js"></script>
+    <script type="text/javascript" src="/js/slick/facebook-slider.js"></script>
+    <script type="module" src="{{ asset('/js/pages/home.js') }}"></script>
+{% endblock %}

@@ -39,6 +39,12 @@ class Prestation
      */
     private $photoInPromote;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=PrestationType::class, inversedBy="prestations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $prestationType;
+
 
     public function __toString()
     {
@@ -99,6 +105,18 @@ class Prestation
     public function setPhotoInPromote(?Photo $photoInPromote): self
     {
         $this->photoInPromote = $photoInPromote;
+
+        return $this;
+    }
+
+    public function getPrestationType(): ?PrestationType
+    {
+        return $this->prestationType;
+    }
+
+    public function setPrestationType(?PrestationType $prestationType): self
+    {
+        $this->prestationType = $prestationType;
 
         return $this;
     }

@@ -1,0 +1,39 @@
+{% extends 'pages/page.html.twig' %}
+
+{% block title %}Photos{% endblock %}
+
+{% block pageTitle %}Photos{% endblock %}
+
+{% block pageContent %}
+    <div class="drowpdown-list">
+        <select name="photo-sort" id="photoSort" class="sortTag">
+            <option value="" selected>Toutes les photos</option>
+            {% for tag in tags %}
+            <option value="{{ tag }}">{{ tag }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="photos-content">  
+        {% for photo in photos %}
+            <div class="photo">
+                <h2 class="photo__title">{{ photo.name }}</h2>
+                <div class="photo__img">
+                    <img src="{{ asset( photoDir ~ photo.path ) }}" alt="{{ photo.name }}" />
+                </div>
+                <div class="photo__actions">
+                    <div class="photo__tags">
+                        {% for tag in photo.tags %}
+                            <span class="tag sortTag">{{ tag }}</span> 
+                        {% endfor %}
+                    </div>
+                    <div class="photo__date">Créé le : {{ photo.date|date("m/d/Y") }}</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ asset('./js/photos/filter.js') }}"></script>
+{% endblock %}

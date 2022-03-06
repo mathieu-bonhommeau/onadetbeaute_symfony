@@ -1,0 +1,25 @@
+.contact-container {
+    background-color: $bg-footer;
+    padding-bottom: 3em;
+    border-bottom: 1px solid $footer-border-color;
+
+    .container {
+        max-width: 992px;
+    }
+}
+
+.contact {
+    margin-top: 0;
+
+    &__title {
+        @include title-style;
+        color: $tomato;
+        margin-top: 0;
+        padding: 2rem 5rem 0.5rem 5rem;
+        border-bottom: solid 1px $white;
+    }
+
+    &__form {
+        padding: 0.5rem 5rem 0.5rem 5rem;
+    }
+}

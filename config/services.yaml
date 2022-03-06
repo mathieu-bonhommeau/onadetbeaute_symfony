@@ -5,6 +5,8 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     photos_images: /images/upload_photos
+    email: contact@onadetbeaute.com
+    
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -30,3 +32,10 @@ services:
         tags:
             - name : 'doctrine.event_subscriber'
               connection: 'default'
+    
+    app.menu_builder:
+        class: App\Menu\Builder
+        arguments: ["@knp_menu.factory"]
+        tags:
+            - { name: knp_menu.menu_builder, method: mainMenu, alias: main }
+            - { name: knp_menu.menu_builder, method: footerMenu, alias: footer }

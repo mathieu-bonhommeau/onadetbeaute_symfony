@@ -1,0 +1,56 @@
+.btn {
+    font-weight: bold;
+    padding: 1em 1.5em;
+    border-radius: 2em;
+
+    &--orange {
+        background-color: $tomato;
+        color: $white;
+        border: 2px solid $tomato;
+
+        &:hover {
+            background-color: $white;
+            color: $tomato;
+            transition: background-color ease-in-out 200ms;
+        }
+     
+    }
+
+    &--outline-orange {
+        background-color: transparent;
+        color: $tomato;
+        border: 2px solid $tomato;
+        font-weight: normal;
+        padding: 0.5em 1em;
+    }
+}
+
+.go-up {
+    position: fixed;
+    z-index: 1000;
+    width: 70px;
+    height: 70px;
+    background-color: transparent;
+    bottom: 30px;
+    right: 30px;
+
+    &::after {
+        content: '\f0aa';
+        color: $tomato;
+        font-family: 'FontAwesome';
+        position: absolute;
+        top: 7px;
+        left: 10px;
+        font-size: 50px;
+    }
+
+    &--hidden {
+        opacity: 0;
+        transition: display 0.4s ease;
+    }
+    &--show {
+        opacity: 1;
+        transition: opacity 0.4s ease;
+        cursor: pointer;
+    }
+}

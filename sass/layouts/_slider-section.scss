@@ -1,0 +1,78 @@
+.my-activity, .who-i-am {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    position: relative;
+
+    &__text {
+        padding: 2em 3em 2em 2em;
+        width: 40%;
+    }
+
+    &__title {
+        margin-top: 0;
+    }
+
+    &__catchphrase {
+        font-size: $catchphrase-size;
+        margin-top: 3em;
+    }
+
+    &__slider {
+        width: 40%;
+    }
+
+    &__link {
+        margin-top: 3em;
+        position: absolute;
+    }
+
+    &__photo {
+        padding: 2em;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            box-shadow: $shadow-card;
+            border-top-left-radius: $card-radius;
+            border-bottom-right-radius: $card-radius;
+        }
+    }
+}
+
+.my-activity {
+
+    &__photo {
+        height: 350px;
+    }
+}
+
+.who-i-am {
+    flex-direction: row-reverse;
+    justify-content: center;
+
+    &__photo {
+        height: 500px;
+    }
+}
+
+.slider-section-container {
+    width: 100vw;
+    background: linear-gradient($broken-white, $white, $broken-white);
+}
+
+.slick-dots li button:before {
+    font-size: 12px;
+}
+
+.link-photos {
+    text-align: right;
+    margin-top: 40px;
+    position: relative;
+
+    a {
+        bottom: -15px;
+    }
+}

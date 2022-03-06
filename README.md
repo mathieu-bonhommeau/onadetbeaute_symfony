@@ -1,2 +1,2 @@
 # ONadEtBeaute
-avec Symfony / Mysql / EasyAdmin / Jenkins /
+avec Symfony / Mysql / EasyAdmin / Vanilla js

@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\OnadEtBeaute;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -26,7 +27,17 @@ class OnadEtBeauteCrudController extends AbstractCrudController
             TextField::new('phone', 'Téléphone'),
             TextField::new('siret', 'Numéro de siret'),
             TextEditorField::new('aboutMe', 'A propos de moi'),
-            TextEditorField::new('aboutMyActivity', 'Description de l\'activité')
+            TextEditorField::new('aboutMyActivity', 'Description de l\'activité'),
+            IdField::new('facebookClientId', 'Facebook Client Id')
+                ->hideOnIndex(),
+            IdField::new('facebookUserId', 'Facebook User Id')
+                ->hideOnIndex(),
+            TextField::new('facebookClientSecret', 'Facebook Client Secret')
+                ->hideOnIndex(),
+            TextField::new('facebookRedirectUri', 'Facebook Redirect Uri')
+                ->hideOnIndex(),
+            IdField::new('facebookPageId', 'Facebook Page Id')
+                ->hideOnIndex(),
         ];
     }
     

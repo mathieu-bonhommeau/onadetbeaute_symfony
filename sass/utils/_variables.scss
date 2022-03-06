@@ -1,18 +1,25 @@
 /*Variables*/
 
-$fontFamily: 'Slabo 27px',
-serif;
-$titleFontFamily: 'Slabo 27px',
-serif;
+$fontFamily: 'Slabo 27px', serif;
+$titleFontFamily: 'Slabo 27px', serif;
+
 $baseFontSize: 16px;
 $bodyBGColor: #f7f7fa;
 $baseFontColor: #000;
+$bg-footer: #232733;
 
 $linkColor: #f2989b;
 $linkColorHover: #e88185;
 
+/* Color */
+$tomato: tomato;
+$white: #ffffff;
+$broken-white: #fbf6f5;
+$footer-color: #919296;
+$pink: #a35e9c;
+
 /*Header*/
-$headerBGColor: #fbf6f5;
+$headerBGColor: $broken-white;
 $headerTextColor: #fff;
 
 $maxWidth: 1400px;
@@ -21,13 +28,26 @@ $secColor: #fc466b;
 
 /*Principal menu*/
 $principalMenuBg: rgba(255,255,255,0.8);
+$menu-text-size: 1.2em;
+$menu-text-color: #601528;
+$menu-text-color-hover: #302e44;
 
-/*Menu Color*/
-$menuTextColor: $linkColor;
-$menuTextActiveColor: $linkColor;
+/* Text */
+$text-color: #2a2a2a;
+$title-color: #601528;
+$h1-size: 3em;
+$catchphrase-size: 1.3em;
 
-$mobileMenuBg: #000;
-$desktopMenuTextColor: #fff;
-$desktopMenuDropDownBg: $linkColor;
-$borderColor: #e8e8e8;
+/* Radius */
+$card-radius: 20px;
 
+/* shadow */
+$shadow-card: 0px 0px 15px #919296;
+$shadow-img: 0px 0px 5px #919296;
+$shadow-img-list: 0px 0px 10px #919296;
+
+/* Marging */
+$section-margin: 70px;
+
+/* Border */
+$footer-border-color: #373b48;

@@ -2,9 +2,9 @@
 
 namespace App\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Serializer\Annotation\Groups;
 use App\Repository\PhotoRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -19,11 +19,13 @@ class Photo
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"list-photos"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"list-photos"})
      */
     private $path;
 
@@ -55,6 +57,7 @@ class Photo
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"list-photos"})
      */
     private $name;
 
@@ -65,8 +68,15 @@ class Photo
 
     /**
      * @ORM\Column(type="array", nullable=true)
+     * @Groups({"list-photos"})
      */
     private $tags = [];
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @Groups({"list-photos"})
+     */
+    private $date;
 
     public function __toString()
     {
@@ -203,6 +213,18 @@ class Photo
     public function setTags(?array $tags): self
     {
         $this->tags = $tags;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

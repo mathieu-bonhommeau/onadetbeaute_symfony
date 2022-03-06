@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/matanna/onadetbeaute_symfony/issues"
   },
-  "homepage": "https://github.com/matanna/onadetbeaute_symfony#readme"
+  "homepage": "https://github.com/matanna/onadetbeaute_symfony#readme",
+  "dependencies": {
+    "sass": "^1.49.0"
+  }
 }

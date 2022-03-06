@@ -1,0 +1,23 @@
+.drowpdown-list {
+    margin-bottom: 2em;
+
+    label {
+        font-weight: bold;
+        padding-right: 2em;
+    }
+
+    select {
+        padding: 0.5em 1em;
+        color: $white;
+        background: $tomato;
+        border: solid 1px $tomato;
+        border-radius: 5px;
+    }
+
+    option {
+        &:hover {
+            color: $tomato;
+            background: $white;
+        }
+    }
+}

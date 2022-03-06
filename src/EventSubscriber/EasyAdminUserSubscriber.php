@@ -3,19 +3,20 @@
 namespace App\EventSubscriber;
 
 use App\Entity\User;
-use App\Repository\PhotoRepository;
+use App\Entity\OnadEtBeaute;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeCrudActionEvent;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityUpdatedEvent;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\PasswordHasher\PasswordHasherInterface;
 
 class EasyAdminUserSubscriber implements EventSubscriberInterface
 {
-    private $hash;
+    private $userHash;
 
-    public function __construct(UserPasswordHasherInterface $passwordHasher) {
-        $this->hash = $passwordHasher;
+    public function __construct(UserPasswordHasherInterface $userPasswordHasher) 
+    {
+        $this->userHash = $userPasswordHasher;
     }
 
     public static function getSubscribedEvents()
@@ -30,7 +31,7 @@ class EasyAdminUserSubscriber implements EventSubscriberInterface
     {
         $entity = $event->getEntityInstance();
         if ($entity instanceof User) {
-           $entity = $this->hashPassword($entity); 
+            $entity = $this->hashUserPassword($entity); 
         }
     }
     
@@ -38,17 +39,17 @@ class EasyAdminUserSubscriber implements EventSubscriberInterface
     {
         $entity = $event->getEntityInstance();
         if ($entity instanceof User) {
-           $entity = $this->hashPassword($entity); 
+            $entity = $this->hashUserPassword($entity); 
         }
     }
 
-    private function hashPassword(User $user): User
+    private function hashUserPassword(User $user): User
     {
         return $user->setPassword(
-                $this->hash->hashPassword(
-                    $user,
-                    $user->getPassword()
-                )
-            );
+            $this->userHash->hashPassword(
+                $user,
+                $user->getPassword()
+            )
+        );
     }
 }
