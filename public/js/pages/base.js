@@ -13,9 +13,11 @@ window.addEventListener('scroll', event => {
     if (document.body.scrollTop > '293') {
         document.querySelector('.nav-container').classList.add('fix-menu')
         document.querySelector('.logo-menu').classList.add('show-logo')
+        document.querySelector('.presentations-banner').style.marginTop = 143
     } else {
         document.querySelector('.nav-container').classList.remove('fix-menu')
         document.querySelector('.logo-menu').classList.remove('show-logo')
+        document.querySelector('.presentations-banner').style.marginTop = 70
     }
 })
 

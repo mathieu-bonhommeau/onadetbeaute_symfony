@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20220214211056 extends AbstractMigration
+final class Version20220305181103 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,15 +20,14 @@ final class Version20220214211056 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE prestation_type ADD slug VARCHAR(255) NOT NULL');
-        $this->addSql('ALTER TABLE prestation_type ADD slug VARCHAR(255)');
-        $this->addSql('UPDATE prestation_type SET slug=LOWER(name)');
-        $this->addSql('ALTER TABLE prestation_type ADD slug VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE photo ADD date DATETIME NOT NULL');
+        $this->addSql('ALTER TABLE prestation_type CHANGE slug slug VARCHAR(255) NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE prestation_type DROP slug');
+        $this->addSql('ALTER TABLE photo DROP date');
+        $this->addSql('ALTER TABLE prestation_type CHANGE slug slug VARCHAR(255) CHARACTER SET utf8mb4 DEFAULT NULL COLLATE `utf8mb4_unicode_ci`');
     }
 }
