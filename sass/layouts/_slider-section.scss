@@ -1,13 +1,25 @@
 .my-activity, .who-i-am {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding-top: 10px;
     padding-bottom: 30px;
     position: relative;
 
+    @media screen and (max-width: 992px) {
+        flex-direction: column;
+        align-items: center;
+    }
+
     &__text {
         padding: 2em 3em 2em 2em;
         width: 40%;
+
+        @media screen and (max-width: 992px) {
+            width: 50%;
+        }
+        @media screen and (max-width: 768px) {
+            width: 70%;
+        }
     }
 
     &__title {
@@ -17,15 +29,32 @@
     &__catchphrase {
         font-size: $catchphrase-size;
         margin-top: 3em;
+
+        @media screen and (max-width: 992px) {
+            margin-top: 1em;
+        }
     }
 
     &__slider {
         width: 40%;
+
+        @media screen and (max-width: 992px) {
+            width: 60%;
+            margin-top: 2em;
+        }
+        @media screen and (max-width: 768px) {
+            width: 90%;
+            margin-top: 2em;
+        }
     }
 
     &__link {
         margin-top: 3em;
         position: absolute;
+
+        @media screen and (max-width: 992px) {
+            margin-top: 1em;
+        }
     }
 
     &__photo {
@@ -52,6 +81,16 @@
 .who-i-am {
     flex-direction: row-reverse;
     justify-content: center;
+
+    @media screen and (max-width: 992px) {
+        flex-direction: column;
+    }
+
+    &__slider {
+        @media screen and (max-width: 992px) {
+            margin-top: 0;
+        }
+    }
 
     &__photo {
         height: 500px;

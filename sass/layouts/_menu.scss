@@ -2,14 +2,36 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
 
-    @media screen and (max-width: 992px) {
-        display: none;
+.toggle-nav {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: $tomato;
+    box-shadow: 1px 1px 2px $footer-border-color;
+    transform: translateX(-120%);
+    transition: transform 0.4s ease;
+
+    &.visible {
+        transform: translateX(0);
     }
 }
 
 .toggle-menu {
-    text-align: center;
+
+
+
+    &__logo {
+        width: 100%;
+        img {
+            width: 70%;
+            padding: 10px 20px;
+        }
+    }
 
     &__icon {
         cursor: pointer;
@@ -25,8 +47,40 @@
         }
     }
 
+    &__menu {
+        list-style: none;
+        margin-top: 0;
+        padding-left: 20px;
+        z-index: 2000;
+    }
+
+    &__item {
+        @include menu-style;
+        list-style: none;
+        margin-right: 2.5em;
+        position: relative;
+        padding: 1em 0.5em;
+        color: $broken-white;
+        cursor: pointer;
+        border-bottom: 1px solid $broken-white; 
+    }
+
+    &__close {
+        position: absolute;
+        color: $broken-white;
+        font-weight: bold;
+        top: 20px;
+        right: 20px;
+    }
+
     @media screen and (min-width: 992px) {
         display: none;
+    }
+
+    &--right {
+        position: absolute;
+        right: 20px;
+        bottom: 22px;
     }
 }
 
@@ -70,20 +124,32 @@
             transition: width 300ms ease-in-out;
         }
     }
+
+    @media screen and (max-width: 992px) {
+        display: none;
+    }
 }
 
 .phone-nav {
     @include menu-style;
+    position: absolute;
     font-size: $menu-text-size * 0.9;
     display: flex;
     align-items: center;
     right: 60px;
+    top: 40px;
     
     svg {
         padding-right: 0.5em;
     }
+
     @media screen and (max-width: 1200px) {
         font-size: 1em;
+    }
+
+    @media screen and (max-width: 768px) {
+        right: 20px;
+        top: 20px;
     }
 }
 
@@ -92,5 +158,9 @@
     &__item {
         border-bottom: 1px solid $footer-border-color;
         width: 50%;
+    }
+
+    @media screen and (max-width: 992px) {
+        display: none;
     }
 }

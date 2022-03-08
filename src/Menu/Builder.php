@@ -71,6 +71,46 @@ final class Builder implements ContainerAwareInterface
     }
 
     /**
+     * Build the toggle menu
+     *
+     * @param array $options
+     * @return ItemInterface
+     */
+    public function toggleMenu(array $options): ItemInterface
+    {
+        $requestUri = $this->requestStack->getCurrentRequest()->getRequestUri();
+
+        $menu = $this->factory->createItem('root', [
+            'childrenAttributes' => [
+                'class' => 'menu toggle-menu__menu'
+            ]
+        ]);
+
+        $menu->addChild('Accueil', ['route' => 'home'])
+            ->setAttribute('class', 'toggle-menu__item');
+
+        // Generate items for prestations
+        $prestationTypes = $this->em->getRepository(PrestationType::class)->findAll();
+
+        foreach ($prestationTypes as $prestationType) {
+            $menu->addChild($prestationType->getName(), [
+                'route' => 'type-prestation',
+                'routeParameters' => ['slug' => $prestationType->getSlug()]
+            ])
+                ->setAttribute('class', 'toggle-menu__item');
+        }
+        
+        $menu->addChild('Photos', ['route' => 'photos'])
+            ->setAttribute('class', 'toggle-menu__item');
+        $menu->addChild('Tarifs', ['route' => 'tarifs'])
+            ->setAttribute('class', 'toggle-menu__item');
+        $menu->addChild('Contact', ['uri' => $requestUri . '#contact'])
+            ->setAttribute('class', 'toggle-menu__item');
+
+        return $menu;
+    }
+
+    /**
      * Build the footer menu
      *
      * @param array $options
