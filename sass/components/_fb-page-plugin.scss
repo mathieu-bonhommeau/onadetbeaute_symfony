@@ -3,6 +3,10 @@
     padding: 1.3em;
     background-color: $broken-white;
     border-radius: 10px;
+
+    @media screen and (max-width: 992px) {
+        display: none;
+    }
 }
 
 .fb-page {

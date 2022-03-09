@@ -21,9 +21,7 @@ final class Version20220214211056 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE prestation_type ADD slug VARCHAR(255) NOT NULL');
-        $this->addSql('ALTER TABLE prestation_type ADD slug VARCHAR(255)');
         $this->addSql('UPDATE prestation_type SET slug=LOWER(name)');
-        $this->addSql('ALTER TABLE prestation_type ADD slug VARCHAR(255) NOT NULL');
     }
 
     public function down(Schema $schema): void

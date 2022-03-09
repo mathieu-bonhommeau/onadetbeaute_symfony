@@ -31,6 +31,7 @@
         img {
             object-fit: cover;
             width: 80%;
+            height: 350px;
             border-bottom-right-radius: $card-radius;
             border-top-left-radius: $card-radius;
             box-shadow: $shadow-img;
@@ -49,7 +50,6 @@
     position:absolute;
     height: 100%;
     width: 100%;
-    padding-left: 1em;
     text-align: center;
 
     &__title {
