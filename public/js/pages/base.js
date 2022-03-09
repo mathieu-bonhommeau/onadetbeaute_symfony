@@ -67,3 +67,4 @@ icon.addEventListener('click', () => {
     }
     document.querySelector('.toggle-menu__close').addEventListener('click', () => toggleMenu.classList.remove('visible'))
 })
+
