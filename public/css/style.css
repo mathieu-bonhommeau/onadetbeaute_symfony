@@ -472,7 +472,6 @@ body {
 }
 
 .login-container {
-  height: 60vh;
   max-width: 992px;
 }
 
@@ -482,6 +481,18 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2em;
+}
+@media screen and (max-width: 768px) {
+  .form-group {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media screen and (max-width: 540px) {
+  .form-group {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 .form-group .btn {
   width: 170px;
@@ -850,6 +861,11 @@ body {
     height: 250px;
     width: 90%;
     margin-top: 0;
+  }
+}
+@media screen and (max-width: 350px) {
+  .presentations-banner__slide {
+    width: 95%;
   }
 }
 .presentations-banner__img {
