@@ -451,7 +451,7 @@ body {
 }
 @media screen and (max-width: 992px) {
   .wrapper {
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     padding: 2em 0;
   }
 }
@@ -976,6 +976,11 @@ body {
 .card-prestation-type {
   height: 500px;
 }
+@media screen and (max-width: 540px) {
+  .card-prestation-type {
+    height: 400px;
+  }
+}
 
 .social-posts {
   overflow: hidden;
@@ -1341,6 +1346,11 @@ body {
     grid-template-columns: 80%;
   }
 }
+@media screen and (max-width: 768px) {
+  .photos-content {
+    grid-template-columns: 100%;
+  }
+}
 
 .photo {
   margin-bottom: 2em;
@@ -1659,12 +1669,34 @@ body {
   max-height: 250px;
   object-fit: cover;
 }
+@media screen and (max-width: 540px) {
+  .card__img img {
+    max-height: 120px;
+  }
+}
+.card__description {
+  position: relative;
+}
+@media screen and (max-width: 450px) {
+  .card__description {
+    overflow: hidden;
+  }
+  .card__description::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(rgba(251, 246, 245, 0), rgba(251, 246, 245, 0.1), #fbf6f5);
+  }
+}
 .card__text {
   line-height: 1.7em;
 }
 .card__link {
   position: absolute;
-  bottom: 0.5em;
+  bottom: 1em;
   right: 1em;
   transition: all 0.3s ease;
   overflow: hidden;
