@@ -11,6 +11,11 @@
         color: $footer-color;
         padding: 2em;
 
+        @media screen and (max-width: 992px) {
+            flex-direction: column;
+
+        }
+
         * {
             list-style: none;
             padding-left: 0;
@@ -19,6 +24,10 @@
         & > div {
             width: 25%;
             padding: 0 3%;
+
+            @media screen and (max-width: 992px) {
+                width: 100%;
+            }
         }
 
         li {
@@ -33,6 +42,11 @@
 
             * {
                 width: auto;
+            }
+
+            @media screen and (max-width: 992px) {
+                align-items: start; 
+                gap: 1em;
             }
         }
     }

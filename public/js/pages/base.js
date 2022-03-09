@@ -13,11 +13,21 @@ window.addEventListener('scroll', event => {
     if (document.body.scrollTop > '293') {
         document.querySelector('.nav-container').classList.add('fix-menu')
         document.querySelector('.logo-menu').classList.add('show-logo')
-        document.querySelector('.presentations-banner').style.marginTop = 143
+        document.querySelector('.presentations-banner').style.marginTop = 133
+
+        if(window.screen.width < 993) {
+            document.querySelector('.toggle-menu').classList.add('toggle-menu--right')
+        }
+
     } else {
         document.querySelector('.nav-container').classList.remove('fix-menu')
         document.querySelector('.logo-menu').classList.remove('show-logo')
-        document.querySelector('.presentations-banner').style.marginTop = 70
+        if(window.screen.width < 993) {
+            document.querySelector('.presentations-banner').style.marginTop = 0
+        } else {
+            document.querySelector('.presentations-banner').style.marginTop = 70
+        }
+        document.querySelector('.toggle-menu').classList.remove('toggle-menu--right')
     }
 })
 
@@ -42,3 +52,15 @@ if(document.location.pathname === '/' || param === 'home') {
     document.querySelector('.header-container').classList.remove('header-container--home')
 }
 
+// Toggle menu
+const icon = document.querySelector('.toggle-menu__icon')
+const toggleMenu = document.querySelector('.toggle-nav')
+
+icon.addEventListener('click', () => {
+    if (toggleMenu.classList.contains('visible')) {
+        toggleMenu.classList.remove('visible')
+    } else {
+        toggleMenu.classList.add('visible')
+    }
+    document.querySelector('.toggle-menu__close').addEventListener('click', () => toggleMenu.classList.remove('visible'))
+})

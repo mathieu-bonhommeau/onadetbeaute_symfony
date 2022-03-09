@@ -5,6 +5,10 @@
     
     &--home {
         height: 100vh;
+
+        @media screen and (max-width: 992px) {
+            height: auto;
+        }
     }
 }
 
@@ -17,7 +21,6 @@
         margin: 0 auto;
         padding: 20px 0 20px 0;
         position: relative;
-        z-index: 1000;
         width: 40%;
         @include center-box;
         flex-direction: column;
@@ -34,11 +37,10 @@
             width: 50%;
         }
         @media screen and (max-width: 768px) {
-            width: 60%;
+            width: 100%;
+            padding: 70px 0 20px 0;
         }
-        @media screen and (max-width: 768px) {
-            width: 70%;
-        }
+        
     }
 }
 
@@ -81,14 +83,23 @@
         width: 160px;
         display: none;
 
+        @media screen and (max-width: 992px) {
+            left: 20px;
+        }
+
         img {
             object-fit: cover;
             width: 100%;
+
+            @media screen and (max-width: 992px) {
+                width: 80%
+            }
         }
 
         &.show-logo {
             display: block;
         }
+
     }
 }
 

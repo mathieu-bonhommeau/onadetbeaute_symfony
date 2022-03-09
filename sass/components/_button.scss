@@ -3,6 +3,10 @@
     padding: 1em 1.5em;
     border-radius: 2em;
 
+    @media screen and (max-width: 992px) {
+        padding: 0.5em 1em;
+    }
+
     &--orange {
         background-color: $tomato;
         color: $white;
@@ -33,6 +37,11 @@
     background-color: transparent;
     bottom: 30px;
     right: 30px;
+
+    @media screen and (max-width: 992px) {
+        bottom: 10px;
+        right: 20px;
+    }
 
     &::after {
         content: '\f0aa';

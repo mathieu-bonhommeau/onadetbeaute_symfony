@@ -28,7 +28,7 @@ jQuery(document).ready(function() {
             arrows: true,
             centerMode: true,
             centerPadding: '100px',
-            slidesToShow: 1
+            slidesToShow: 2
         }
         },
         {
@@ -36,7 +36,7 @@ jQuery(document).ready(function() {
         settings: {
             arrows: true,
             centerMode: true,
-            centerPadding: '10px',
+            centerPadding: '150px',
             slidesToShow: 1
         }
         },

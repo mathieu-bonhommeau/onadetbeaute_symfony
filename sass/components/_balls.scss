@@ -36,6 +36,10 @@
         top: 70%;
         left: 30%;
         animation: small-ball-3 linear 15s infinite;
+
+        @media screen and (max-width: 1199px) {
+            display: none;
+        }
     }
 
     &--4 {
@@ -60,6 +64,10 @@
         left: 40%;
         transform: scale(2);
         animation: big-ball-6 linear 13s infinite;
+
+        @media screen and (max-width: 1199px) {
+            display: none;
+        }
     }
 
     &--7 {
@@ -68,6 +76,10 @@
         right: 30%;
         transform: scale(1);
         animation: big-ball-2 linear 10s infinite;
+
+        @media screen and (max-width: 1199px) {
+            display: none;
+        }
     }
 
     &--8 {
@@ -76,6 +88,10 @@
         top: 55%;
         transform: scale(2);
         animation: big-ball-6 linear 13s infinite;
+
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
     }
 
     &--9 {
