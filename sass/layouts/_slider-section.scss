@@ -29,6 +29,7 @@
     &__catchphrase {
         font-size: $catchphrase-size;
         margin-top: 3em;
+        line-height: 150%;
 
         @media screen and (max-width: 992px) {
             margin-top: 1em;

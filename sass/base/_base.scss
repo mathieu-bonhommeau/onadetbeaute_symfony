@@ -3,6 +3,7 @@ html {
     font-family: 'Open Sans';
     font-size: $baseFontSize;
     scroll-behavior: smooth;
+    //overflow: auto;
 }
 
 a {
@@ -26,5 +27,6 @@ body {
     overflow-x: hidden;
     width: 100vw;
     scroll-behavior: smooth;
+    box-sizing: content-box;
 }
 

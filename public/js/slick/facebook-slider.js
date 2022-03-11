@@ -34,7 +34,7 @@ jQuery(document).ready(function() {
         {
         breakpoint: 768,
         settings: {
-            arrows: true,
+            arrows: false,
             centerMode: true,
             centerPadding: '150px',
             slidesToShow: 1
@@ -43,7 +43,7 @@ jQuery(document).ready(function() {
         {
         breakpoint: 587,
         settings: {
-            arrows: true,
+            arrows: false,
             centerMode: true,
             centerPadding: '50px',
             slidesToShow: 1

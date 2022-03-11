@@ -32,12 +32,13 @@
         flex-direction: column;
         gap: 20px;
         align-items: flex-start;
+        font-size: 1em;
     }
 }
 
 .tarif-price {
-    color: $white;
-    background-color: $tomato;
+    color: $tomato;
+    border: solid 1px $tomato;
     padding: 0.3em 0.7em;
     border-radius: 5px;
 }
