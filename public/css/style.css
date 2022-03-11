@@ -621,6 +621,20 @@ body {
     padding: 70px 0 20px 0;
   }
 }
+.header__phrase {
+  font-family: "brushsci";
+  color: #601528;
+  font-size: 2.2em;
+  margin-top: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+}
+@media screen and (max-width: 992px) {
+  .header__phrase {
+    margin-bottom: 10px;
+  }
+}
 
 .logo {
   font-family: "brushsci";
