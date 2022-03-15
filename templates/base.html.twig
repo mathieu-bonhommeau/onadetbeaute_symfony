@@ -1,5 +1,5 @@
-<!DOCTYPE html="fr">
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8">
 		<title>
@@ -7,7 +7,6 @@
 			{% endblock %}
 		</title>
 
-		<meta charset="utf-8">
 		<meta name="geo.placename" content="Vendée">
 		<meta name="geo.position" content="46.88590933251385, -1.2322285150038392">
 		<meta name="geo.region" content="FR_fr">
@@ -66,7 +65,7 @@
 							<path d="M17.5 2.5H7.5C6.39543 2.5 5.5 3.39543 5.5 4.5V20.5C5.5 21.6046 6.39543 22.5 7.5 22.5H17.5C18.6046 22.5 19.5 21.6046 19.5 20.5V4.5C19.5 3.39543 18.6046 2.5 17.5 2.5Z" stroke="#FF6347" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 							<path d="M12.5 18.5H12.51" stroke="#FF6347" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 						</svg>
-						<a href="tel:+{{ onadetbeauteDatas.phone }}" title="Numéro de téléphone O'Nad&Beauté">{{ onadetbeauteDatas.phone }}</a>
+						<a href="tel:+33{{ onadetbeauteDatas.phone|replace({' ': ''}) }}" title="Numéro de téléphone O'Nad&Beauté">0{{ onadetbeauteDatas.phone }}</a>
 					</div>
 				</header>
 				<!-- Principal navigation -->
@@ -131,7 +130,7 @@
 									<path d="M17.5 2.5H7.5C6.39543 2.5 5.5 3.39543 5.5 4.5V20.5C5.5 21.6046 6.39543 22.5 7.5 22.5H17.5C18.6046 22.5 19.5 21.6046 19.5 20.5V4.5C19.5 3.39543 18.6046 2.5 17.5 2.5Z" stroke="#FF6347" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 									<path d="M12.5 18.5H12.51" stroke="#FF6347" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 								</svg>
-								{{ onadetbeauteDatas.phone }}</p>
+								0{{ onadetbeauteDatas.phone }}</p>
 							</li>
 							<li>
 								<svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">

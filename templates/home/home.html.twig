@@ -13,15 +13,15 @@
     <section class="container presentations-banner" role="banner">
         <div class="presentations-banner__slide">
             <div class="slide-presentation slide-1">
-                <h2 class="slide-presentation__title">Prothésiste Ongulaire <span class="orange">Nail Art</span></h1>
+                <h2 class="slide-presentation__title">Prothésiste Ongulaire <span class="orange">Nail Art</span></h2>
                 <a href="{{ path('type-prestation', {'slug' : 'ongles'}) }}" class="btn btn--orange">En savoir plus</a>
             </div>
             <div class="slide-presentation slide-2">
-                <h2 class="slide-presentation__title">Extensions de <span class="orange">Cils</span></h1>
+                <h2 class="slide-presentation__title">Extensions de <span class="orange">Cils</span></h2>
                 <a href="{{ path('type-prestation', {'slug' : 'cils'}) }}" class="btn btn--orange">En savoir plus</a>
             </div>
             <div class="slide-presentation slide-3">
-                <h2 class="slide-presentation__title">Vente de <span class="orange">Bijoux</span> et <span class="orange">Maquillage</span></h1>
+                <h2 class="slide-presentation__title">Vente de <span class="orange">Bijoux</span> et <span class="orange">Maquillage</span></h2>
                 <a href="{{ path('type-prestation', {'slug' : 'coquetteries'}) }}" class="btn btn--orange">En savoir plus</a>
             </div>
         </div>
@@ -36,7 +36,7 @@
     <section class="container prestation-types">
         {% for prestationType in prestationTypes %}
             <div class="card card-prestation-type">
-                <div class="card__title">{{ prestationType.name }}</div>
+                <h3 class="card__title">{{ prestationType.name }}</h3>
                 <div class="card__img">
                     <img src="{{ photoDir ~ prestationType.photoInPromote.path }}" alt="Image présentant la prestation : {{ prestationType.name }}">
                 </div>
@@ -88,7 +88,7 @@
                     {% for post in facebookPosts|slice(0, 10) %}
                         {% set id = (post.facebookId|split('_'))[1] %}
                         <div class="posts-iframe card">
-                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FONadetBeaute%2Fposts%2F{{ id }}&show_text=true" scrolling="yes" frameborder="0" allowfullscreen="true"></iframe>
+                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FONadetBeaute%2Fposts%2F{{ id }}&show_text=true"></iframe>
                         </div>
                     {% endfor %}
                  </div>
@@ -114,7 +114,7 @@
                 <div class="who-i-am__catchphrase">
                     <p>
                         Diplômée d'un <span class="orange bold">CAP d'esthétique</span> et d'une formation<br>
-                        <span class="orange bold"><span class="orange bold">CAP d'esthétique</span>, je vous propose mes services ....
+                        <span class="orange bold">CAP d'esthétique</span>, je vous propose mes services ....
                     </p>
                 </div>
                 <p class="who-i-am__paragraph">{{ onadetbeaute.aboutMe|raw }}</p>
