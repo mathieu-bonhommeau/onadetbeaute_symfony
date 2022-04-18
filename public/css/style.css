@@ -428,6 +428,15 @@ h3 {
   margin: 0;
 }
 
+.inConstruct {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1000;
+  overflow: hidden;
+}
+
 .page-title {
   font-family: "brushsci";
   color: #601528;
@@ -486,6 +495,7 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 2em;
+  margin-bottom: 2em;
 }
 @media screen and (max-width: 768px) {
   .form-group {

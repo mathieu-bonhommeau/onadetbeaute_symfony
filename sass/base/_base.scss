@@ -34,3 +34,11 @@ h3 {
     margin: 0;
 }
 
+.inConstruct {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000;
+    overflow: hidden;
+}
