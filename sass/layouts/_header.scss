@@ -4,8 +4,6 @@
     position: relative;
     
     &--home {
-        height: 100vh;
-
         @media screen and (max-width: 992px) {
             height: auto;
         }

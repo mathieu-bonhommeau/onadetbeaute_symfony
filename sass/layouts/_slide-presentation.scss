@@ -1,6 +1,11 @@
 .presentations-banner {
     display: flex;
     overflow: hidden;
+    padding-bottom: 30px;
+
+    @media screen and (max-width: 992px) {
+        padding-bottom: 15px;
+    }
 
     &__slide {
         @include center-box;
