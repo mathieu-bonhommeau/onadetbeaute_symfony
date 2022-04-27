@@ -10,6 +10,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=PrestationTypeRepository::class)
+ * @ORM\Table(name="prestation_type")
  * @UniqueEntity("slug")
  */
 class PrestationType

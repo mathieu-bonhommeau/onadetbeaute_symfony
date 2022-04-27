@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=PhotoRepository::class)
+ * @ORM\Table(name="photo")
  * @ORM\HasLifecycleCallbacks()
  * @Vich\Uploadable
  */

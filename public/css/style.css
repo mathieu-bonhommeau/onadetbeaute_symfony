@@ -612,9 +612,6 @@ h3 {
   background-color: #fbf6f5;
   position: relative;
 }
-.header-container--home {
-  height: 100vh;
-}
 @media screen and (max-width: 992px) {
   .header-container--home {
     height: auto;
@@ -895,6 +892,12 @@ h3 {
 .presentations-banner {
   display: flex;
   overflow: hidden;
+  padding-bottom: 30px;
+}
+@media screen and (max-width: 992px) {
+  .presentations-banner {
+    padding-bottom: 15px;
+  }
 }
 .presentations-banner__slide {
   display: flex;
