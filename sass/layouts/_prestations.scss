@@ -15,11 +15,12 @@
         justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid $broken-white;
+        gap: 1em;
 
         @media screen and (max-width: 992px) {
             flex-direction: column;
-            gap: 1em;
             padding-bottom: 2em;
+            gap: 1.5em;
         }
 
         &:first-of-type {
@@ -51,9 +52,24 @@
             box-shadow: $shadow-img-list;
         }
     }
-    &__description {
+
+    &__details {
         width: 80%;
         text-align: center;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        gap: 0.5em;
+    }
+
+    &_name {
+        //text-align: center;
+    }
+
+    &__description {
+        font-size: 0.8em;
+        color: $tomato;
+
     }
     &__price {
         text-align: right;

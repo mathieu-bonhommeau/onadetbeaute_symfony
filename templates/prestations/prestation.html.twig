@@ -15,7 +15,10 @@
                 <div class="list-prestations__picture">
                     <img src="{{ asset( photoDir ~ prestation.photoInPromote.path) }}" alt="">
                 </div>
-                <div class="list-prestations__description">{{ prestation.description|raw }}</div>
+                <div class="list-prestations__details">
+                    <div class="list-prestations__name">{{ prestation.name|raw }}</div>
+                    <div class="list-prestations__description">{{ prestation.description|raw }}</div>
+                </div>
                 <div class="list-prestations__price"><span class="price">{{ (prestation.price * 0.01)|number_format(2)}}€</span></div>
             </div>
             {% endfor %}

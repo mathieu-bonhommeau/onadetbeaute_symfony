@@ -1339,12 +1339,13 @@ h3 {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #fbf6f5;
+  gap: 1em;
 }
 @media screen and (max-width: 992px) {
   .list-prestations .prestation-line {
     flex-direction: column;
-    gap: 1em;
     padding-bottom: 2em;
+    gap: 1.5em;
   }
 }
 .list-prestations .prestation-line:first-of-type {
@@ -1378,9 +1379,17 @@ h3 {
   object-fit: cover;
   box-shadow: 0px 0px 10px #919296;
 }
-.list-prestations__description {
+.list-prestations__details {
   width: 80%;
   text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.list-prestations__description {
+  font-size: 0.8em;
+  color: tomato;
 }
 .list-prestations__price {
   text-align: right;
