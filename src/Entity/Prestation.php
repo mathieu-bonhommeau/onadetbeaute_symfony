@@ -36,7 +36,8 @@ class Prestation
     private $price;
 
     /**
-     * @ORM\OneToOne(targetEntity=Photo::class, inversedBy="prestation")
+     * @ORM\ManyToOne(targetEntity=Photo::class, inversedBy="prestation")
+     * @ORM\JoinColumn (unique=false)
      */
     private $photoInPromote;
 

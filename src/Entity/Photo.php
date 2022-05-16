@@ -5,6 +5,7 @@ namespace App\Entity;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Doctrine\Common\Collections\Collection;
 use App\Repository\PhotoRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -52,7 +53,7 @@ class Photo
     private $prestationType;
 
     /**
-     * @ORM\OneToOne(targetEntity=Prestation::class, mappedBy="photoInPromote")
+     * @ORM\OneToMany(targetEntity=Prestation::class, mappedBy="photoInPromote")
      */
     private $prestation;
 
@@ -165,22 +166,37 @@ class Photo
         return $this;
     }
 
-    public function getPrestation(): ?Prestation
+    /**
+     * @return Collection|Prestation[]
+     */
+    public function getPrestations(): Collection
     {
         return $this->prestation;
     }
 
-    public function setPrestation(Prestation $prestation): self
+    public function addPrestation(Prestation $prestation): self
     {
-        // set the owning side of the relation if necessary
-        if ($prestation->getPhotoInPromote() !== $this) {
+        if (!$this->prestation->contains($prestation)) {
+            $this->prestation[] = $prestation;
             $prestation->setPhotoInPromote($this);
         }
 
-        $this->prestation = $prestation;
+        return $this;
+    }
+
+    public function removePrestation(Prestation $prestation): self
+    {
+        if ($this->prestation->removeElement($prestation)) {
+            // set the owning side to null (unless already changed)
+            if ($prestation->getPhotoInPromote() === $this) {
+                $prestation->setPhotoInPromote(null);
+            }
+        }
 
         return $this;
     }
+
+
 
     public function getName(): ?string
     {
