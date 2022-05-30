@@ -101,7 +101,6 @@ class Photo
         }
 
         $this->path = $path;
-
         return $this;
     }
 
@@ -132,7 +131,6 @@ class Photo
     public function setFrontPhoto(?bool $frontPhoto): self
     {
         $this->frontPhoto = $frontPhoto;
-
         return $this;
     }
 
@@ -144,7 +142,6 @@ class Photo
     public function setIsMyWorksPhoto(?bool $isMyWorksPhoto): self
     {
         $this->isMyWorksPhoto = $isMyWorksPhoto;
-
         return $this;
     }
 
@@ -161,7 +158,6 @@ class Photo
         }
 
         $this->prestationType = $prestationType;
-
         return $this;
     }
 
@@ -178,7 +174,6 @@ class Photo
         }
 
         $this->prestation = $prestation;
-
         return $this;
     }
 
@@ -190,7 +185,6 @@ class Photo
     public function setName(string $name): self
     {
         $this->name = $name;
-
         return $this;
     }
 
@@ -202,7 +196,6 @@ class Photo
     public function setPrincipalPhoto(?bool $principalPhoto): self
     {
         $this->principalPhoto = $principalPhoto;
-
         return $this;
     }
 
@@ -214,7 +207,6 @@ class Photo
     public function setTags(?array $tags): self
     {
         $this->tags = $tags;
-
         return $this;
     }
 
@@ -226,7 +218,6 @@ class Photo
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
-
         return $this;
     }
 
