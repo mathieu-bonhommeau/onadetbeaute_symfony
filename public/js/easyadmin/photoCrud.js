@@ -26,7 +26,7 @@ tr.forEach((element) => {
     const listPhoto = document.querySelector('.datagrid tbody')
 
     listPhoto.addEventListener('change', () => {
-        
+
         if (principalPhoto.checked || 
             frontPhoto.checked || 
             isMyWorksPhoto.checked ||
