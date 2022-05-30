@@ -44,7 +44,7 @@ class PhotoCrudController extends AbstractCrudController
                                 || $entity->getPrincipalPhoto() 
                                 || $entity->getFrontPhoto() 
                                 || $entity->getIsMyWorksPhoto() 
-                                || $entity->getPrestation()
+                                || $entity->getPrestations()
                             ) {
                                 return false;
                             }
