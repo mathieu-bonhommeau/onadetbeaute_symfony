@@ -71,3 +71,15 @@
     }
 }
 
+.admin-links {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    color: $tomato;
+    padding: 1em;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+

@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/matanna/onadetbeaute_symfony#readme",
   "dependencies": {
+    "axios": "^0.27.2",
     "sass": "^1.49.0",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2"

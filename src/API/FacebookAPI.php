@@ -6,6 +6,7 @@ use App\Entity\FacebookPost;
 use App\Entity\OnadEtBeaute;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\RouterInterface;
+use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
@@ -39,9 +40,9 @@ class FacebookAPI
      *
      * @param string $code The code is the sended code by facebook api in the request uri (GET parameter)
      * 
-     * @return void
+     * @return RedirectResponse
      */
-    public function getAccessToken($code)
+    public function getAccessToken($code): RedirectResponse
     {
         // Get access token
         try {
@@ -64,7 +65,7 @@ class FacebookAPI
 
             $accessToken = json_decode($response->getContent(), true)['access_token'];
             
-        } catch (\Exception $e) {
+        } catch (TransportExceptionInterface  $e) {
 
             $this->flash->add('danger', 'La connexion avec facebook n\' a pas fonctionné');
             return new RedirectResponse($this->router->generate('home'));
@@ -117,40 +118,13 @@ class FacebookAPI
         }
     }
 
-    /**
-     * This function get posts from  the page OnadetBeaute
-     *
+    /*/**
+     * This function sorts posts for keep only posts those with a picture
+     * @todo a changer en js pour filtrer les posts recus
+     * @param [type] $posts
      * @return array
      */
-    public function getPosts()
-    {
-        //Get the token in the database
-        $onadetbeaute = $this->manager->getRepository(OnadEtBeaute::class)->findAll()[0];
-        $this->token = $onadetbeaute->getFacebookToken();
-        
-        $response = $this->client->request(
-            'GET',
-            'https://graph.facebook.com/v12.0/' . $onadetbeaute->getFacebookPageId() . '/published_posts',
-            [
-                'headers' => [
-                    'Authorization' => 'Bearer ' . $this->token,
-                ]
-            ]
-        );
-        
-        $posts = json_decode($response->getContent(), true);
-        $postsSorted = $this->filterPosts($posts);
-    
-        return $postsSorted ;
-    }
-
-    /**
-     * This function sorts posts for keep only posts those with a picture
-     *
-     * @param [type] $posts
-     * @return void
-     */
-    private function filterPosts($posts)
+    /*private function filterPosts($posts)
     {
         $postsSorted = [];
 
@@ -182,5 +156,5 @@ class FacebookAPI
         }
         
         return $postsSorted;
-    }
+    }*/
 }

@@ -191,6 +191,14 @@
 						<a href="https://www.facebook.com/ONadetBeaute/photos/?ref=page_internal"><i class="fab fa-facebook-f icon"></i></a>
 					</div>
 				</div>
+				<div class="admin-links">
+					{% if is_granted('ROLE_USER') %}
+						<a href="{{ path('app_logout') }}">Se déconnecter</a>
+						<a href="{{ path('admin') }}">Backoffice</a>
+					{% else %}
+						<a href="{{ path('app_login') }}">Se connecter</a>
+					{% endif %}
+				</div>
 			</footer>
 		</div>
 

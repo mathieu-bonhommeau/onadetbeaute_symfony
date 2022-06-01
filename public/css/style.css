@@ -437,6 +437,16 @@ h3 {
   overflow: hidden;
 }
 
+.alert {
+  font-weight: bold;
+  color: tomato;
+  text-align: center;
+}
+
+.loading {
+  text-align: center;
+}
+
 .page-title {
   font-family: "brushsci";
   color: #601528;
@@ -1099,14 +1109,17 @@ h3 {
 
 .facebook-reconnect {
   color: red;
-  border: red solid 1px;
-  padding: 0.5em 1em;
+  font-size: 0.7em;
   border-radius: 2em;
   margin-top: 1em;
 }
 .facebook-reconnect:hover {
-  color: white;
-  background-color: red;
+  text-decoration: underline;
+}
+
+#facebook-card {
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 .my-activity, .who-i-am {
@@ -1320,6 +1333,17 @@ h3 {
 .footer-socials .icon:hover {
   color: #ffffff;
   border: 1px solid #ffffff;
+}
+
+.admin-links {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  color: tomato;
+  padding: 1em;
+}
+.admin-links:hover {
+  text-decoration: underline;
 }
 
 .prestation-type-description {

@@ -56,13 +56,16 @@
 
 .facebook-reconnect {
     color: red;
-    border: red solid 1px;
-    padding: 0.5em 1em;
+    font-size: 0.7em;
     border-radius: 2em;
     margin-top: 1em;
 
     &:hover {
-        color: white;
-        background-color: red;
+        text-decoration: underline;
     }
+}
+
+#facebook-card {
+    margin-top: 2em;
+    margin-bottom: 2em;
 }

@@ -82,28 +82,14 @@
                 <a href='https://www.facebook.com/v12.0/dialog/oauth?client_id={{ onadetbeaute.facebookClientId }}&redirect_uri={{ onadetbeaute.facebookRedirectUri }}&state=987654321' class="facebook-reconnect">Connecter le site à facebook</a>
                 {% endif %}
             </div>
-            {% if facebookPosts %}
-            <div class="social-posts__slide">
-                <div class="bloc-iframes">
-                    {% for post in facebookPosts|slice(0, 10) %}
-                        {% set id = (post.facebookId|split('_'))[1] %}
-                        <div class="posts-iframe card">
-                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FONadetBeaute%2Fposts%2F{{ id }}&show_text=true"></iframe>
-                        </div>
-                    {% endfor %}
-                 </div>
+
+            <div id="facebook-card">
+
             </div>
             <div class="social-posts__links">
                 <a href="https://www.instagram.com/onadetbeaute"><i class="fab fa-instagram icon"></i></a>
                 <a href="https://www.facebook.com/ONadetBeaute/photos/?ref=page_internal"><i class="fab fa-facebook-f icon"></i></a>
             </div>
-            {% else %}
-                {% for message in app.flashes('success') %}
-                    <div class="alert alert-success">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
         </section>
     </div>
 
@@ -135,8 +121,7 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
-
-    <script type="text/javascript" src="/js/slick/slick.js"></script>
-    <script type="text/javascript" src="/js/slick/facebook-slider.js"></script>
+    <script type="module" src="/js/slick/slick.js"></script>
     <script type="module" src="{{ asset('/js/pages/home.js') }}"></script>
+    <script type="text/javascript" src="/js/slick/facebook-slider.js"></script>
 {% endblock %}
