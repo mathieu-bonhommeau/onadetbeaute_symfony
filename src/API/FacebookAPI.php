@@ -39,7 +39,7 @@ class FacebookAPI
      * This function does the process for get all the access tokens (user and page) allowing to connect to facebook api
      *
      * @param string $code The code is the sended code by facebook api in the request uri (GET parameter)
-     * 
+     *
      * @return RedirectResponse
      */
     public function getAccessToken($code): RedirectResponse
@@ -64,7 +64,7 @@ class FacebookAPI
             );
 
             $accessToken = json_decode($response->getContent(), true)['access_token'];
-            
+
         } catch (TransportExceptionInterface  $e) {
 
             $this->flash->add('danger', 'La connexion avec facebook n\' a pas fonctionné');
@@ -87,7 +87,8 @@ class FacebookAPI
             );
 
             $accessTokenLong = json_decode($response->getContent(), true)['access_token'];
-            
+
+
         } catch (\Exception $e) {
             $this->flash->add('danger', 'La connexion avec facebook n\' a pas fonctionné');
             return new RedirectResponse($this->router->generate('home'));
@@ -97,17 +98,17 @@ class FacebookAPI
         try {
             $response = $this->client->request(
                 'GET',
-                'https://graph.facebook.com/v12.0/' . 
-                $onadetbeaute->getFacebookUserId() . '/accounts?access_token='. $accessTokenLong,
+                'https://graph.facebook.com/v12.0/' .
+                $onadetbeaute->getFacebookUserId() . '/accounts?fields=name,access_token&
+                    access_token='. $accessTokenLong,
                 [
                     'headers' => [
                         'Accept' => 'application/json',
                     ]
                 ]
             );
-
             $pageTokenLong = json_decode($response->getContent(), true)['data'][0]['access_token'];
-            
+
             $onadetbeaute->setFacebookToken($pageTokenLong);
             $this->manager->persist($onadetbeaute);
             $this->manager->flush();

@@ -18,7 +18,7 @@ const fetchPosts = async () => {
             }
         })
         const onadetbeaute = await response.json()
-
+        console.log(onadetbeaute)
         const responsePosts = await fetch(`https://graph.facebook.com/v12.0/${onadetbeaute[0].facebookPageId}/published_posts`, {
             method: 'GET',
             headers: {
@@ -45,6 +45,7 @@ const fetchPosts = async () => {
         buildSliderPosts()
 
     } catch (err) {
+        console.log(err)
         facebookSlider.innerHTML = `<p class="alert">Oups !! Facebook a rencontré un problème</p>`
     }
 }
