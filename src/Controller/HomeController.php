@@ -50,18 +50,18 @@ class HomeController extends AbstractController
             $this->facebookApi->getAccessToken($request->get('code'));
         }
         
-        try {
+        /*try {
             // Use the cache for retrieve facebook posts
             $cache = new FilesystemAdapter();
         
             $facebookPosts = $cache->get('posts_facebook', function (ItemInterface $item) {
-                $item->expiresAfter(3600);
+                $item->expiresAfter(1);
 
                 return $this->facebookApi->getPosts();
             });
         } catch (\Exception $e) {
             $this->addFlash('warning', 'Oups ! La connexion avec Facebook ne fonctionne pas.');
-        }
+        }*/
 
         return $this->render('home/home.html.twig', [
             'prestationTypes' => $prestationTypes,
