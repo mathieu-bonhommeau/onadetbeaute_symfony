@@ -20,9 +20,9 @@ final class Version20220217214007 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE photo ADD date DATETIME NOT NULL');
-        $this->addSql('ALTER TABLE prestation ADD CONSTRAINT FK_51C88FAD6DA7F0A FOREIGN KEY (prestation_type_id) REFERENCES prestation_type (id)');
-        $this->addSql('CREATE INDEX IDX_51C88FAD6DA7F0A ON prestation (prestation_type_id)');
+        //$this->addSql('ALTER TABLE photo ADD date DATETIME NOT NULL');
+        //$this->addSql('ALTER TABLE prestation ADD CONSTRAINT FK_51C88FAD6DA7F0A FOREIGN KEY (prestation_type_id) REFERENCES prestation_type (id)');
+        //$this->addSql('CREATE INDEX IDX_51C88FAD6DA7F0A ON prestation (prestation_type_id)');
     }
 
     public function down(Schema $schema): void

@@ -47,7 +47,7 @@ class Photo
     private $isMyWorksPhoto;
 
     /**
-     * @ORM\OneToOne(targetEntity=PrestationType::class, mappedBy="photoInPromote")
+     * @ORM\OneToMany(targetEntity=PrestationType::class, mappedBy="photoInPromote")
      */
     private $prestationType;
 

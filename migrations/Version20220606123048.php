@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20220305181103 extends AbstractMigration
+final class Version20220606123048 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,14 +20,12 @@ final class Version20220305181103 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        //$this->addSql('ALTER TABLE photo ADD date DATETIME NOT NULL');
-        //$this->addSql('ALTER TABLE prestation_type CHANGE slug slug VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE prestation DROP INDEX UNIQ_51C88FAD83B83B7D, ADD INDEX IDX_51C88FAD83B83B7D (photo_in_promote_id)');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE photo DROP date');
-        $this->addSql('ALTER TABLE prestation_type CHANGE slug slug VARCHAR(255) CHARACTER SET utf8mb4 DEFAULT NULL COLLATE `utf8mb4_unicode_ci`');
+        $this->addSql('ALTER TABLE prestation DROP INDEX IDX_51C88FAD83B83B7D, ADD UNIQUE INDEX UNIQ_51C88FAD83B83B7D (photo_in_promote_id)');
     }
 }
