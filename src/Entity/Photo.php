@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -47,14 +48,14 @@ class Photo
     private $isMyWorksPhoto;
 
     /**
-     * @ORM\OneToMany(targetEntity=PrestationType::class, mappedBy="photoInPromote")
+     * @ORM\OneToOne(targetEntity=PrestationType::class, mappedBy="photoInPromote")
      */
     private $prestationType;
 
     /**
-     * @ORM\OneToOne(targetEntity=Prestation::class, mappedBy="photoInPromote")
+     * @ORM\OneToMany(targetEntity=Prestation::class, mappedBy="photoInPromote")
      */
-    private $prestation;
+    private $prestations;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -161,19 +162,33 @@ class Photo
         return $this;
     }
 
-    public function getPrestation(): ?Prestation
+    /**
+     * @return Collection
+     */
+    public function getPrestations(): Collection
     {
-        return $this->prestation;
+        return $this->prestations;
     }
 
-    public function setPrestation(Prestation $prestation): self
+    public function addPrestation(Prestation $prestation): self
     {
-        // set the owning side of the relation if necessary
-        if ($prestation->getPhotoInPromote() !== $this) {
-            $prestation->setPhotoInPromote($this);
+        if (!$this->prestations->contains($prestation)) {
+            $this->prestations[] = $prestation;
+            $prestation->setPrestationType($this);
         }
 
-        $this->prestation = $prestation;
+        return $this;
+    }
+
+    public function removePrestation(Prestation $prestation): self
+    {
+        if ($this->prestations->removeElement($prestation)) {
+            // set the owning side to null (unless already changed)
+            if ($prestation->getPrestationType() === $this) {
+                $prestation->setPrestationType(null);
+            }
+        }
+
         return $this;
     }
 
