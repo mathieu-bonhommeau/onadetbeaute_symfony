@@ -52,3 +52,12 @@ h3 {
 .loading {
     text-align: center;
 }
+
+.deplacement {
+    font-size: 1.3em;
+    font-weight: bold;
+
+    @media screen and (max-width: 992px) {
+        font-size: 1.1em;
+    }
+}

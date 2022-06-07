@@ -447,6 +447,16 @@ h3 {
   text-align: center;
 }
 
+.deplacement {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+@media screen and (max-width: 992px) {
+  .deplacement {
+    font-size: 1.1em;
+  }
+}
+
 .page-title {
   font-family: "brushsci";
   color: #601528;
@@ -1055,11 +1065,6 @@ h3 {
 .card-prestation-type {
   height: 500px;
 }
-@media screen and (max-width: 540px) {
-  .card-prestation-type {
-    height: 400px;
-  }
-}
 
 .social-posts {
   overflow: hidden;
@@ -1178,7 +1183,7 @@ h3 {
   }
 }
 .my-activity__link, .who-i-am__link {
-  margin-top: 3em;
+  margin-top: 0.5em;
   position: absolute;
 }
 @media screen and (max-width: 992px) {
@@ -1772,7 +1777,7 @@ h3 {
 }
 .card__img img {
   width: 100%;
-  max-height: 250px;
+  height: 200px;
   object-fit: cover;
 }
 @media screen and (max-width: 540px) {
@@ -1794,7 +1799,6 @@ h3 {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(rgba(251, 246, 245, 0), rgba(251, 246, 245, 0.1), #fbf6f5);
   }
 }
 .card__text {
