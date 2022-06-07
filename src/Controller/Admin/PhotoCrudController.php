@@ -44,7 +44,7 @@ class PhotoCrudController extends AbstractCrudController
                                 || $entity->getPrincipalPhoto() 
                                 || $entity->getFrontPhoto() 
                                 || $entity->getIsMyWorksPhoto() 
-                                || $entity->getPrestations()
+                                || count($entity->getPrestations()) > 0
                             ) {
                                 return false;
                             }
@@ -77,7 +77,8 @@ class PhotoCrudController extends AbstractCrudController
             TextField::new('prestationType', 'Type de prestation')
                 ->hideWhenCreating()
                 ->setDisabled(true),
-            TextField::new('prestation', 'Prestation')
+            ArrayField::new('prestations', 'Prestations')
+                ->addCssClass('prestation-field')
                 ->hideWhenCreating()
                 ->setDisabled(true),
             ArrayField::new('tags', 'Tags')
