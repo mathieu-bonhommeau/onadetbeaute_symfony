@@ -470,7 +470,7 @@ h3 {
   padding: 0.5em 0.3em;
   border-radius: 10px;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1200px) {
   .page-title {
     text-align: center;
     padding: 0.25em 0.15em;
@@ -483,7 +483,7 @@ h3 {
   padding: 50px 20px 100px 20px;
   gap: 50px;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1200px) {
   .wrapper {
     grid-template-columns: 100%;
     padding: 2em 0;
@@ -494,7 +494,7 @@ h3 {
   align-items: flex-start;
   margin-top: 0;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1200px) {
   .page-content {
     padding: 0 2em;
   }
@@ -1061,7 +1061,7 @@ h3 {
     width: 60%;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 540px) {
   .prestation-types .card {
     width: 75%;
   }
@@ -1393,18 +1393,18 @@ h3 {
 }
 @media screen and (max-width: 992px) {
   .list-prestations__picture {
-    width: 30%;
+    width: 50%;
     height: 200px;
   }
 }
 @media screen and (max-width: 768px) {
   .list-prestations__picture {
-    width: 50%;
+    width: 75%;
   }
 }
 @media screen and (max-width: 540px) {
   .list-prestations__picture {
-    width: 70%;
+    width: 90%;
   }
 }
 .list-prestations__picture img {
@@ -1908,7 +1908,7 @@ h3 {
   background-color: #fbf6f5;
   border-radius: 10px;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1200px) {
   .aside__facebook {
     display: none;
   }
