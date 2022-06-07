@@ -1061,6 +1061,11 @@ h3 {
     width: 60%;
   }
 }
+@media screen and (max-width: 768px) {
+  .prestation-types .card {
+    width: 75%;
+  }
+}
 
 .card-prestation-type {
   height: 500px;
