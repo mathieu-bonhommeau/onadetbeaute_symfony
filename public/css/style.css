@@ -1191,6 +1191,9 @@ h3 {
   margin-top: 0.5em;
   position: absolute;
 }
+.my-activity__link.btn, .who-i-am__link.btn {
+  padding: 0.5em 1em;
+}
 @media screen and (max-width: 992px) {
   .my-activity__link, .who-i-am__link {
     margin-top: 1em;
