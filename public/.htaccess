@@ -56,7 +56,7 @@ DirectoryIndex index.php
 
     RewriteEngine On
     RewriteCond %{SERVER_PORT} !=443
-    RewriteRule ^(.*)$ https://exemple.com/$1 [R=301,L]
+    RewriteRule ^(.*)$ https://onadetbeaute.com/$1 [R=301,L]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
