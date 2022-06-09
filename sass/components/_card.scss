@@ -41,6 +41,7 @@
     &__description {
         position: relative;
         line-height: 1.3em;
+        opacity: 0.8;
 
         @media screen and (max-width: 450px) {
             overflow: hidden;

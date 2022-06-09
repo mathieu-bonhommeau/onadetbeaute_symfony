@@ -15,7 +15,6 @@ class FacebookPostsController extends AbstractController
     public function getToken(Request $request, EntityManagerInterface $manager): Response
     {
         if ($request->isXmlHttpRequest()) {
-            dump('test');
             $onadetbeaute = $manager->getRepository(OnadEtBeaute::class)->findAll()[0];
 
             return $this->json([$onadetbeaute], 200);

@@ -1358,6 +1358,7 @@ h3 {
 
 .prestation-type-description {
   padding-bottom: 2em;
+  line-height: 2em;
 }
 
 .list-prestations {
@@ -1793,6 +1794,7 @@ h3 {
 .card__description {
   position: relative;
   line-height: 1.3em;
+  opacity: 0.8;
 }
 @media screen and (max-width: 450px) {
   .card__description {
