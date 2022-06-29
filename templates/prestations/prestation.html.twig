@@ -12,11 +12,9 @@
         <div>
             {% for prestation in prestations %}
             <div class="prestation-line">
-                <a href="{{ asset( photoDir ~ photo.path ) }}">
-                    <div class="list-prestations__picture">
-                        <img src="{{ asset( photoDir ~ prestation.photoInPromote.path) }}"  alt="{{ photo.name }}">
-                    </div>
-                </a>
+                <div class="list-prestations__picture">
+                    <img src="{{ asset( photoDir ~ prestation.photoInPromote.path) }}"  alt="{{ prestation.photoInPromote.name }}">
+                </div>
                 <div class="list-prestations__details">
                     <div class="list-prestations__name">{{ prestation.name|raw }}</div>
                     <div class="list-prestations__description">{{ prestation.description|raw }}</div>
