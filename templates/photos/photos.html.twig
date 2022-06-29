@@ -1,6 +1,6 @@
 {% extends 'pages/page.html.twig' %}
 
-{% block title %}Photos{% endblock %}
+{% block title %}O'Nad&Beauté - Photos{% endblock %}
 
 {% block pageTitle %}Photos{% endblock %}
 
@@ -17,9 +17,11 @@
         {% for photo in photos %}
             <div class="photo">
                 <h2 class="photo__title">{{ photo.name }}</h2>
-                <div class="photo__img">
-                    <img src="{{ asset( photoDir ~ photo.path ) }}" alt="{{ photo.name }}" />
-                </div>
+                <a href="{{ asset( photoDir ~ photo.path ) }}">
+                    <div class="photo__img">
+                        <img src="{{ asset( photoDir ~ photo.path ) }}" alt="{{ photo.name }}" />
+                    </div>
+                </a>
                 <div class="photo__actions">
                     <div class="photo__tags">
                         {% for tag in photo.tags %}
